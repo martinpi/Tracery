@@ -68,8 +68,9 @@ public class Tracery {
             add(rule: rule, definition: value)
         }
         
+		StandardModifiers.installStandardModifiers(t: self)
         analyzeRuleBook()
-        
+
         info("tracery ready")
     }
     
@@ -192,7 +193,7 @@ extension Tracery {
             values = ["\(value)"]
         }
         
-        let candidates = values.flatMap { createRuleCandidate(rule: rule, text: $0) }
+		let candidates = values.compactMap { createRuleCandidate(rule: rule, text: $0) }
         if candidates.count == 0 {
             warn("rule '\(rule)' ignored - no expansion candidates found")
             return
