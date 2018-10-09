@@ -24,6 +24,7 @@ extension Tracery {
     static func log(level: LoggingLevel, message: @autoclosure () -> String) {
         guard logLevel.rawValue >= level.rawValue else { return }
         print(message())
+//		NotificationCenter.default.post(name: Notification.Name("Tracery.log"), object: nil, userInfo: ["message":message()])
     }
 
     func trace(_ message: @autoclosure () -> String) {

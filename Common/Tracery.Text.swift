@@ -9,7 +9,16 @@
 import Foundation
 
 
-// File format that can scan plain text
+// File format that can scan plain text. Newlines are necessary
+
+// [rule1]
+// candidate 1
+// candidate 2
+//
+// [rule2]
+// candidate 1
+// candidate 2
+//
 
 extension Tracery {
     
