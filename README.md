@@ -1,7 +1,7 @@
 
  
  ![Tracery - powerful content generation](logo.png)
- 
+  
 # Contents
 - [Introduction](#introduction)
     - [Installation](#installation)
@@ -33,19 +33,21 @@
 # Introduction
 
 
- Tracery is a content generation library originally created by [@GalaxyKate](http://www.galaxykate.com/); you can find more information at [Tracery.io](http://www.tracery.io)
+Tracery is a content generation library originally created by [@GalaxyKate](http://www.galaxykate.com/); you can find more information at [Tracery.io](http://www.tracery.io)
  
-
- This implementation, while heavily inspired by the original, has more features added.
+This implementation, while heavily inspired by the original, has more features added.
  
- The content generation in Tracery works based on an input set of rules. The rules determine how content should be generated.
+The content generation in Tracery works based on an input set of rules. The rules determine how content should be generated.
  
 ## Installation
  
 - Clone or download this repository
 - To work with the playground, open Playgrounds/Tracery.playground
 - The project builds `iOS` and `macOS` framework targets, which can be linked to your projects
- 
+
+OR
+
+- Use Carthage to install from this repository (yet not the original)
 
 [top](#contents)
 ****
