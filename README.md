@@ -1,5 +1,4 @@
 
-[![Version](https://img.shields.io/github/release/martinpi/Tracery.svg?style=flat)](https://github.com/martinpi/Tracery)
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-0473B3.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![License](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat)](https://github.com/martinpi/Tracery)
  
