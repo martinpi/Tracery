@@ -24,7 +24,23 @@ class TextFormat: XCTestCase {
         XCTAssertEqual(t.expand("#origin#"), "hello world")
         
     }
-    
+
+	func testPlaintextFormatAllowsMultiRuleCreation() {
+		
+		let lines = [
+			"[origin]",
+			"#second#",
+			"",
+			"[second]",
+			"result",
+			]
+		
+		let t = Tracery(lines: lines)
+		
+		XCTAssertEqual(t.expand("#origin#"), "result")
+		
+	}
+
     
     func testPlaintextFormatAllowsEmptyRuleCreation() {
 

@@ -47,48 +47,25 @@ struct TextParser {
     
     static func parse<S: Sequence>(lines: S) -> [String: Any] where S.Iterator.Element == String {
         
-        var ruleSet = [String: Any]()
-        var state = State.consumeRule
+        var ruleSet = [String: [String] ]()
         var rule = ""
-        var candidates = [String]()
-        
-        func createRule() {
-            if ruleSet[rule] != nil {
-                warn("rule '\(rule)' defined twice, will be overwritten")
-            }
-            if candidates.count == 0 {
-                candidates.append("")
-            }
-            ruleSet[rule] = candidates
-        }
-        
+		
         for line in lines {
-            switch state {
-            case .consumeRule:
-                if line.count > 2, line.hasPrefix("["), line.hasSuffix("]") {
-                    let start = line.index(after: line.startIndex)
-                    let end = line.index(before: line.endIndex)
-					rule = String(line[start..<end])
-                    state = .consumeDefinitions
-                }
-            case .consumeDefinitions:
-                if line == "" {
-                    createRule()
-                    candidates.removeAll()
-                    state = .consumeRule
-                }
-                else {
-                    candidates.append(line)
-                }
+			if line.hasPrefix("["), line.hasSuffix("]") {
+				let start = line.index(after: line.startIndex)
+				let end = line.index(before: line.endIndex)
+				rule = String(line[start..<end])
+				if ruleSet[rule] != nil {
+					warn("rule '\(rule)' defined twice, will be overwritten")
+				}
+				ruleSet[rule] = [String]()
+			} else {
+				if rule != "" {
+					ruleSet[rule]!.append(line)
+				}
             }
         }
-        // if we reached the end, and
-        // we are in the midst of consuming
-        // definitions, create a rule
-        if state == .consumeDefinitions  {
-            createRule()
-        }
-        
+		
         return ruleSet
     }
     
