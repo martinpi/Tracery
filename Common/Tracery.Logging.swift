@@ -20,11 +20,21 @@ extension Tracery {
     }
     
     public static var logLevel = LoggingLevel.errors
-    
+	public static var logTarget : (String) -> Void = stdLog
+	
+	fileprivate static func stdLog(_ message: String) {
+		// standard logger to standard output
+		print(message)
+	}
+	
+	fileprivate static func notificationLog(_ message: String) {
+		// install via setting logTarget to this function instead of the above
+		NotificationCenter.default.post(name: Notification.Name("Tracery.log"), object: nil, userInfo: ["message":message])
+	}
+	
     static func log(level: LoggingLevel, message: @autoclosure () -> String) {
         guard logLevel.rawValue >= level.rawValue else { return }
-        print(message())
-//		NotificationCenter.default.post(name: Notification.Name("Tracery.log"), object: nil, userInfo: ["message":message()])
+        stdLog(message())
     }
 
     func trace(_ message: @autoclosure () -> String) {
