@@ -34,22 +34,36 @@
  
 # Introduction
 
-
 Tracery is a content generation library originally created by [@GalaxyKate](http://www.galaxykate.com/); you can find more information at [Tracery.io](http://www.tracery.io)
  
 This implementation, while heavily inspired by the original, has more features added.
  
 The content generation in Tracery works based on an input set of rules. The rules determine how content should be generated.
  
-## Installation
+## Manual Installation
  
 - Clone or download this repository
-- To work with the playground, open Playgrounds/Tracery.playground
 - The project builds `iOS` and `macOS` framework targets, which can be linked to your projects
+- To work with the playground, open Playgrounds/Tracery.playground
 
-OR
+### Carthage
 
-- Use Carthage to install from this repository (yet not the original)
+[Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks.
+
+You can install Carthage with [Homebrew](http://brew.sh/) using the following command:
+
+```bash
+$ brew update
+$ brew install carthage
+```
+
+To integrate Highlightr into your Xcode project using Carthage, specify it in your `Cartfile`:
+
+```ogdl
+github "martinpi/Tracery"
+```
+
+Run `carthage update` to build the framework and drag the built `Tracery.framework` into your Xcode project.
 
 [top](#contents)
 ****
