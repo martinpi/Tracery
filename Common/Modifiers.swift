@@ -23,8 +23,7 @@ extension String {
 		return String(self[start ..< end])
 	}
 	
-	func charAt(_ pos: Int) -> Character {
-		let start = index(startIndex, offsetBy: pos)
+	func charAt(_ pos: Int) -> Character {		let start = index(startIndex, offsetBy: pos)
 		return Character(String(self[start]))
 	}
 }
@@ -84,6 +83,10 @@ public class StandardModifiers {
 	}
 
 	static func s(s: String) -> String {
+		if s.count < 1 {
+			return ""
+		}
+		
 		let last = s.charAt(s.count-1)
 		switch last {
 		case "y":
