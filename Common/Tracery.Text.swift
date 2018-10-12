@@ -20,6 +20,39 @@ import Foundation
 // candidate 2
 //
 
+extension String {
+	func trimTrailingSpaces() -> String {
+		var t = self
+		while t.hasSuffix(" ") {
+			t = "" + t.dropLast()
+		}
+		return t
+	}
+	
+	func trimLeadingSpaces() -> String {
+		var t = self
+		while t.hasPrefix(" ") {
+			t = "" + t.dropFirst()
+		}
+		return t
+	}
+	
+	func trimSpaces() -> String {
+		return self.trimLeadingSpaces().trimTrailingSpaces()
+	}
+	
+	mutating func trimEnd() {
+		self = self.trimTrailingSpaces()
+	}
+	mutating func trimStart() {
+		self = self.trimLeadingSpaces()
+	}
+	mutating func trim() {
+		self = self.trimLeadingSpaces().trimTrailingSpaces()
+	}
+
+}
+
 extension Tracery {
     
     convenience public init(path: String) {
@@ -50,7 +83,23 @@ struct TextParser {
         var ruleSet = [String: [String] ]()
         var rule = ""
 		
-        for line in lines {
+		var i = 0
+		var concatlines: [String] = [String]()
+		
+		// first pass is just concatinating lines that start with '\'
+		// it also removes all whitespace at the start and the end of the line and then adds one at the start.
+		for line in lines {
+			if line.hasPrefix("\\") {
+				if i>0 {
+					concatlines[i-1] += " " + String(line[line.index(line.startIndex, offsetBy: 1)...]).trimSpaces()
+				}
+			} else {
+				concatlines.append(line.trimSpaces())
+				i += 1
+			}
+		}
+		
+        for line in concatlines {
 			if line.hasPrefix("["), line.hasSuffix("]") {
 				let start = line.index(after: line.startIndex)
 				let end = line.index(before: line.endIndex)
