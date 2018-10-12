@@ -98,12 +98,12 @@ public class Tracery {
         }
     }
     
-    public func add(call: String, transform: @escaping (String) -> ()) {
+    public func add(call: String, transform: @escaping (String, [String]) -> ()) {
         if mods[call] != nil {
             warn("overwriting call '\(call)'")
         }
-        mods[call] = { input, _ in
-            transform(input)
+        mods[call] = { input, params in
+            transform(input, params)
             return input
         }
     }

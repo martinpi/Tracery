@@ -15,7 +15,7 @@ class ExtensionCalls: XCTestCase {
         let t = Tracery()
         
         var invoked = false
-        t.add(call: "msg") {
+		t.add(call: "msg") {_,_ in
             invoked = true
         }
         
@@ -27,7 +27,7 @@ class ExtensionCalls: XCTestCase {
         let t = Tracery()
         
         var invoked = false
-        t.add(call: "msg") {
+		t.add(call: "msg") {_,_ in
             invoked = true
         }
         
@@ -35,4 +35,30 @@ class ExtensionCalls: XCTestCase {
         XCTAssertTrue(invoked)
     }
 
+	func testCallWithArg() {
+		let t = Tracery()
+		
+		var invoked = false
+		t.add(call: "msg") {_,arguments in
+			invoked = true
+			XCTAssertTrue(arguments.count == 1)
+		}
+		
+		_ = t.expand("#.msg(arg)#")
+		XCTAssertTrue(invoked)
+	}
+
+	func testCallWithArgs() {
+		let t = Tracery()
+		
+		var invoked = false
+		t.add(call: "msg") {_,arguments in
+			invoked = true
+			XCTAssertTrue(arguments.count == 2)
+		}
+		
+		_ = t.expand("#.msg(arg1,arg2)#")
+		XCTAssertTrue(invoked)
+	}
+	
 }

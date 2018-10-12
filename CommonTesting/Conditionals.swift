@@ -116,7 +116,7 @@ class Conditionals: XCTestCase {
         ]}
         
         var generated = -1 // start from -1 because the last generated binary will be empty
-        t.add(call: "track") {
+		t.add(call: "track") {_,_ in 
             generated += 1
         }
         
