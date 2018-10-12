@@ -8,6 +8,12 @@
 
 import Foundation
 
+// EXAMPLE OF A LOGGING FUNCTION
+//	func notificationLog(_ message: String) {
+//		// install via Tracery.logTarget = notificationLog
+//		NotificationCenter.default.post(name: Notification.Name("Tracery.log"), object: nil, userInfo: ["message":message])
+//	}
+
 
 extension Tracery {
 
@@ -26,15 +32,10 @@ extension Tracery {
 		// standard logger to standard output
 		print(message)
 	}
-	
-	fileprivate static func notificationLog(_ message: String) {
-		// install via setting logTarget to this function instead of the above
-		NotificationCenter.default.post(name: Notification.Name("Tracery.log"), object: nil, userInfo: ["message":message])
-	}
-	
-    static func log(level: LoggingLevel, message: @autoclosure () -> String) {
+
+    public static func log(level: LoggingLevel, message: @autoclosure () -> String) {
         guard logLevel.rawValue >= level.rawValue else { return }
-        stdLog(message())
+        logTarget(message())
     }
 
     func trace(_ message: @autoclosure () -> String) {
