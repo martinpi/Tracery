@@ -62,8 +62,20 @@ class DefaultContentSelector : RuleCandidateSelector {
     
 }
 
+class SequentialSelector : RuleCandidateSelector {
+	
+	var i = 0
+	func pick(count: Int) -> Int {
+		defer {
+			i += 1
+			if i == count {
+				i = 0
+			}
+		}
+		return i
+	}
 
-
+}
 
 class WeightedSelector :  RuleCandidateSelector {
     

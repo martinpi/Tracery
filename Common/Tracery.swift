@@ -166,15 +166,10 @@ extension Tracery {
     public func add(rule: String, definition value: Any) {
         
         // validate the rule name
-        let tokens = Lexer.tokens(rule)
-        guard tokens.count == 1, case .text = tokens[0] else {
-            error("rule '\(rule)' ignored - names must be plaintext")
-            return
-        }
         if ruleSet[rule] != nil {
             warn("rule '\(rule)' will be re-written")
         }
-        
+		
         let values: [String]
         
         if let provider = value as? RuleCandidatesProvider {
@@ -207,6 +202,19 @@ extension Tracery {
             selector = candidates.map { $0.value }.selector()
         }
         
+		if rule.hasSuffix(".") {
+			// remove the dot
+			let r = String(rule[rule.startIndex..<rule.index(before: rule.endIndex)])
+			// set selector to sequential
+			ruleSet[r] = RuleMapping(candidates: candidates, selector: SequentialSelector())
+			return
+		}
+        let tokens = Lexer.tokens(rule)
+        guard tokens.count == 1, case .text = tokens[0] else {
+            error("rule '\(rule)' ignored - names must be plaintext")
+            return
+        }
+
         ruleSet[rule] = RuleMapping(candidates: candidates, selector: selector)
     }
     

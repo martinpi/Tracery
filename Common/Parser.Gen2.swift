@@ -131,7 +131,7 @@ extension Parser {
                 return nodes
             }
         }
-        
+
         func parseTag() throws -> [ParserNode] {
             
             var nodes = [ParserNode]()
