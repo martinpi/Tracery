@@ -110,6 +110,7 @@
 		0E79B9E6216CA65000359AB3 /* Tracery.JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tracery.JSON.swift; sourceTree = "<group>"; };
 		0E79B9EB216CA66600359AB3 /* Modifiers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
 		0E79B9EE216CA6B500359AB3 /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
+		0E79BA1A2171D69200359AB3 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		B90E7E741E77C6A000C5BD17 /* Tracery.Eval.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tracery.Eval.swift; sourceTree = "<group>"; };
 		B9127FE01E77AEA40063D5A8 /* Tracery Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tracery Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9127FE41E77AEA40063D5A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -230,6 +231,7 @@
 		B96DBFB21E72B630008623B8 = {
 			isa = PBXGroup;
 			children = (
+				0E79BA1A2171D69200359AB3 /* README.md */,
 				B96DC01D1E72F2B7008623B8 /* Common */,
 				B9127FFB1E77AF980063D5A8 /* CommonTesting */,
 				B96DBFBE1E72B630008623B8 /* Tracery iOS */,

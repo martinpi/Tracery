@@ -65,9 +65,6 @@ github "martinpi/Tracery"
 
 Run `carthage update` to build the framework and drag the built `Tracery.framework` into your Xcode project.
 
-[top](#contents)
-****
-
 ## Basic usage
  
 
@@ -180,9 +177,6 @@ t.expand("#boy# and #girl# went up the hill, #boy# fell down, and so did #girl#"
  In order to remember values, we can use tags.
  
 
-[top](#contents)
-****
-
 # Tags
  
  Tags allow to persist the result of a rule expansion to a temporary variable.
@@ -209,9 +203,6 @@ t.expand("#sentence#")
  
  
 
-[top](#contents)
-****
-
 ## Simple story
  
  Here is a more complex example that generates a _short_ story.
@@ -237,9 +228,6 @@ t.expand("#origin#")
 
 
  
-
-[top](#contents)
-****
 
 ## Random numbers
  
@@ -269,9 +257,6 @@ t.expand("[d:0,1,2,3,4,5,6,7,8,9] random 5-digit number: #d##d##d##d##d#")
 
 
 
-
-[top](#contents)
-****
 
 # Modifiers
  
@@ -333,9 +318,6 @@ t.expand("There once was a man named #city.reverse.title#, who came from the cit
 
 
  
-
-[top](#contents)
-****
 
 # Methods
  
@@ -407,9 +389,6 @@ t.expand("[name:benzi]#name.repeat(3)#")
 
 
 
-[top](#contents)
-****
-
 # Calls
  
  There is one more type of rule extension, which is a `call`. Unlike modifiers and methods that work with arguments, parameters and are expected to return some string value, calls do not need to do these.
@@ -452,14 +431,10 @@ t.expand("#letter#")
 
 
 
-[top](#contents)
 ****
 
 # Advanced Usage
  
-
-[top](#contents)
-****
 
 ## Custom Content Selectors
  
@@ -643,16 +618,25 @@ runOptionRule(times: 100, header: "default - weighted")
  In order to provide more flexibility over candidate representation, Tracery allows custom candidate providers.
  
 
-[top](#contents)
-****
-
 ## Custom Candidate Provider
  
-### Weighted Distributions
+ ### Sequential Selector
  
+ If a rule name ends with a ".", e.g. `[count.]`, it is automatically turned into a sequential selector that selects the candidates one after another. This is a backward compatible extension to the original Tracery notation that prohibits special characters in rule names.
+ 
+ ```swift
 
+let t = Tracery {[
+"count." : ["one", "two", "three", "four"]
+]}
+ 
+print(t.expand("#count# #count# #count# #count#"))
 
+// prints "one two three four" every time
 
+```
+ 
+### Weighted Distributions
 
 ```swift
 // This class implements two protocols

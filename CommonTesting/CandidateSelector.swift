@@ -13,11 +13,11 @@ class CandidateSelector : XCTestCase {
 
 	func testRuleCandidateSelectorOverride() {
 		let t = Tracery {[
-			"msg." : ["one", "two", "three", "four"]
+			"count." : ["one", "two", "three", "four"]
 			]}
 		
 		for _ in 0..<20 {
-			XCTAssertEqual(t.expand("#msg# #msg# #msg# #msg#"), "one two three four")
+			XCTAssertEqual(t.expand("#count# #count# #count# #count#"), "one two three four")
 		}
 	}
 
