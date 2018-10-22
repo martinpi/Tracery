@@ -141,7 +141,7 @@ extension Tags {
     
     private func hierarchicalTracery(rules: ()->[String: Any]) -> Tracery {
         let options = TraceryOptions()
-        options.tagStorageType = .heirarchical
+        options.tagStorageType = .hierarchical
         let t = Tracery(options, rules: rules)
         return t
     }

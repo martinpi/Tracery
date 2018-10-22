@@ -46,7 +46,8 @@ public class Tracery {
     var contextStack: ContextStack
     
     public var ruleNames: [String] { return ruleSet.keys.map { $0 } }
-    
+	public var modifierNames: [String] { return mods.keys.map { $0 } }
+
     convenience public init() {
         self.init {[:]}
     }

@@ -53,7 +53,7 @@ class TraceryioSamples: XCTestCase {
     //
     func testIssue31_HierarchicalTagsAllowBracesMatchingCrossingRuleLevels() {
         let o = TraceryOptions()
-        o.tagStorageType = .heirarchical
+        o.tagStorageType = .hierarchical
         
         let braces = ["<>","«»","𛰫𛰬","⌜⌝","ᙅᙂ","ᙦᙣ","⁅⁆","⌈⌉","⌊⌋","⟦⟧","⦃⦄","⦗⦘","⫷⫸"]
         var braceTypes = braces

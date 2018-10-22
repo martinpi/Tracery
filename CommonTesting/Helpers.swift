@@ -49,7 +49,7 @@ extension Tracery {
     
     class func hierarchical(rules: ()->[String:Any]) -> Tracery {
         let options = TraceryOptions()
-        options.tagStorageType = .heirarchical
+        options.tagStorageType = .hierarchical
         return Tracery.init(options, rules: rules)
     }
     

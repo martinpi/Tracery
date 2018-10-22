@@ -28,12 +28,12 @@ protocol TagStorage {
 
 public enum TaggingPolicy {
     case unilevel
-    case heirarchical
+    case hierarchical
     
     func storage() -> TagStorage {
         switch self {
         case .unilevel:  return UnilevelTagStorage()
-        case .heirarchical: return HierarchicalTagStorage()
+        case .hierarchical: return HierarchicalTagStorage()
         }
     }
 }
