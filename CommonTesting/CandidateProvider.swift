@@ -25,10 +25,10 @@ class CandidateProvider: XCTestCase {
     
     
     func testProviderThatIsAlsoASelector() {
-        class Provider : RuleCandidatesProvider, RuleCandidateSelector {
+		class Provider : RuleCandidatesProvider, RuleCandidateSelector {
             var invokeCount = 0
             let candidates = ["jack","jill"]
-            func pick(count: Int) -> Int {
+			func pick(count: Int, randomSource: RandomSource) -> Int {
                 invokeCount += 1
                 return Int(arc4random_uniform(2))
             }

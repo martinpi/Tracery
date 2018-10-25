@@ -25,7 +25,7 @@ class WeightedCandidateSet : RuleCandidatesProvider, RuleCandidateSelector {
         sum = UInt32(weights.reduce(0, +))
     }
     
-    func pick(count: Int) -> Int {
+	func pick(count: Int, randomSource: RandomSource) -> Int {
         var choice = Int(arc4random_uniform(sum))
         var index = 0
         for weight in weights {

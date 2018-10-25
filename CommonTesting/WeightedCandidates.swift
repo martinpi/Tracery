@@ -21,12 +21,14 @@ class WeightedCandidates: XCTestCase {
             "[binary]",
             "1:2",
             "0:0",
-            "##",
+            "end",
             "",
             "[origin]",
-            "[while [b:#binary#]#b# != ## do #b#]",
+			"[while [b:#binary#]#b# != end do #b#]",
         ])
-        
+		
+//		Tracery.logLevel = .verbose
+		
         for _ in 0..<100 {
             let output = t.expand("#origin#")
             XCTAssertEqual(output, String(repeating: "1", count: output.count))

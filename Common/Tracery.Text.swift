@@ -84,11 +84,12 @@ struct TextParser {
         var rule = ""
 		
         for line in lines {
-			if line.hasPrefix("\\") {
+			// ignore comments and blank lines
+			if line.hasPrefix("\\") || line.count == 0 {
 				continue
 			}
 
-			if line.hasPrefix("["), line.hasSuffix("]") {
+			if line.hasPrefix("[") && line.hasSuffix("]") && !line.hasPrefix("[while") {
 				let start = line.index(after: line.startIndex)
 				let end = line.index(before: line.endIndex)
 				rule = String(line[start..<end])

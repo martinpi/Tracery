@@ -10,13 +10,13 @@ import Foundation
 @testable import Tracery
 
 class AlwaysPickFirst : RuleCandidateSelector {
-    func pick(count: Int) -> Int {
-        return 0
-    }
+	func pick(count: Int, randomSource: RandomSource) -> Int {
+		return 0
+	}
 }
 
 class BogusSelector : RuleCandidateSelector {
-    func pick(count: Int) -> Int {
+	func pick(count: Int, randomSource: RandomSource) -> Int {
         return -1
     }
 }
@@ -34,7 +34,7 @@ class PickSpecificItem : RuleCandidateSelector {
         self.offset = offset
     }
     
-    func pick(count: Int) -> Int {
+	func pick(count: Int, randomSource: RandomSource) -> Int {
         switch offset {
         case let .fromStart(offset):
             return offset
@@ -48,7 +48,7 @@ class PickSpecificItem : RuleCandidateSelector {
 
 class SequentialSelector : RuleCandidateSelector {
     var i = 0
-    func pick(count: Int) -> Int {
+	func pick(count: Int, randomSource: RandomSource) -> Int {
         defer {
             i += 1
             if i == count {
@@ -60,7 +60,7 @@ class SequentialSelector : RuleCandidateSelector {
 }
 
 class Arc4RandomSelector : RuleCandidateSelector {
-    func pick(count: Int) -> Int {
+	func pick(count: Int, randomSource: RandomSource) -> Int {
         return Int(arc4random_uniform(UInt32(count)))
     }
 }

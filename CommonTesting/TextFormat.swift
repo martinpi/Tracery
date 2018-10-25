@@ -30,7 +30,7 @@ class TextFormat: XCTestCase {
 		let lines = [
 			"[origin]",
 			"#second#",
-			"",
+//			"",
 			"[second]",
 			"result",
 			]
@@ -65,6 +65,7 @@ class TextFormat: XCTestCase {
         let t = Tracery.init(path: fableFile)
         
         for _ in 0..<10 {
+			print(t.expand("#fable#"))
             XCTAssertFalse(t.expand("#fable#").isEmpty)
         }
         
