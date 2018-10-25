@@ -271,11 +271,18 @@ extension Tracery {
                 var state: ExpansionState = .noExpansion(reason: "not defined")
                 
                 func selectCandidate(_ mapping: RuleMapping, runTime: Bool) {
-                    guard let candidate = mapping.select() else {
-                        state = .noExpansion(reason: "no candidates found")
-                        return
-                    }
-                    state = .apply(candidate.value.nodes)
+					
+					let index = mapping.selector.pick(count: mapping.candidates.count)
+					guard index >= 0 && index < mapping.candidates.count else {
+						state = .noExpansion(reason: "no candidates found")
+						return
+					}
+					
+//                    guard let candidate = mapping.select() else {
+//                        state = .noExpansion(reason: "no candidates found")
+//                        return
+//                    }
+                    state = .apply(mapping.candidates[index].value.nodes)
                     trace("📙 eval \(runTime ? "runtime" : "") \(node)")
                 }
                 

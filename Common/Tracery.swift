@@ -12,11 +12,11 @@ struct RuleMapping {
     let candidates: [RuleCandidate]
     var selector: RuleCandidateSelector
     
-    func select() -> RuleCandidate? {
-        let index = selector.pick(count: candidates.count)
-        guard index >= 0 && index < candidates.count else { return nil }
-        return candidates[index]
-    }
+//    func select() -> RuleCandidate? {
+//        let index = selector.pick(count: candidates.count)
+//        guard index >= 0 && index < candidates.count else { return nil }
+//        return candidates[index]
+//    }
 }
 
 struct RuleCandidate {
@@ -28,6 +28,7 @@ struct RuleCandidate {
 public class TraceryOptions {
     public var tagStorageType = TaggingPolicy.unilevel
     public var isRuleAnalysisEnabled = true
+	public var useSeededRandom = false
     
     public init() { }
 }

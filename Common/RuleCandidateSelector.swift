@@ -9,14 +9,21 @@
 import Foundation
 
 public protocol RuleCandidateSelector {
-    func pick(count: Int) -> Int
+	func pick(count: Int, randomSource: RandomSource) -> Int
 }
 
+// the extension below is a workaround to allow for the protocol to support default parameters.
+// see: https://medium.com/@georgetsifrikas/swift-protocols-with-default-values-b7278d3eef22
+public extension RuleCandidateSelector {
+	func pick(count: Int) -> Int {
+		return pick(count: count, randomSource: FallbackRandomSource.shared)
+	}
+}
 
 class PickFirstContentSelector : RuleCandidateSelector {
     private init() { }
     static let shared = PickFirstContentSelector()
-    func pick(count: Int) -> Int {
+	func pick(count: Int, randomSource: RandomSource = FallbackRandomSource.shared) -> Int {
         return 0
     }
 }
@@ -24,15 +31,17 @@ class PickFirstContentSelector : RuleCandidateSelector {
 
 private extension MutableCollection {
     /// Shuffles the contents of this collection.
-    mutating func shuffle() {
+    mutating func shuffle(_ randomSource: RandomSource) {
         let c = count
         guard c > 1 else { return }
         
         for (firstUnshuffled , unshuffledCount) in zip(indices, stride(from: c, to: 1, by: -1)) {
-            let d: Int = numericCast(arc4random_uniform(numericCast(unshuffledCount)))
+            let d: Int = randomSource.next(lowestValue: 0, highestValue: unshuffledCount) //numericCast(arc4random_uniform(numericCast(unshuffledCount)))
             guard d != 0 else { continue }
             let i = index(firstUnshuffled, offsetBy: d)
             swapAt(firstUnshuffled, i)
+			
+			
         }
     }
 }
@@ -40,20 +49,20 @@ private extension MutableCollection {
 class DefaultContentSelector : RuleCandidateSelector {
     
     var indices:[Int]
-    var index: Int = 0
+    var index: Int
     
     init(_ count: Int) {
         indices = [Int]()
         for i in 0..<count {
             indices.append(i)
         }
-        indices.shuffle()
+		index = count // make sure that first call shuffles
     }
     
-    func pick(count: Int) -> Int {
+	func pick(count: Int, randomSource: RandomSource = FallbackRandomSource.shared) -> Int {
         assert(indices.count == count)
         if index >= count {
-            indices.shuffle()
+            indices.shuffle(randomSource)
             index = 0
         }
         defer { index += 1 }
@@ -65,7 +74,7 @@ class DefaultContentSelector : RuleCandidateSelector {
 class SequentialSelector : RuleCandidateSelector {
 	
 	var i = 0
-	func pick(count: Int) -> Int {
+	func pick(count: Int, randomSource: RandomSource = FallbackRandomSource.shared) -> Int {
 		defer {
 			i += 1
 			if i == count {
@@ -74,7 +83,6 @@ class SequentialSelector : RuleCandidateSelector {
 		}
 		return i
 	}
-
 }
 
 class WeightedSelector :  RuleCandidateSelector {
@@ -87,14 +95,15 @@ class WeightedSelector :  RuleCandidateSelector {
     
     let weights: [Int]
     let sum: UInt32
-    
+	
     init(_ distribution:[Int]) {
         weights = distribution
         sum = UInt32(weights.reduce(0, +))
+//		rand = DefaultRandomSource(seed: Data(base64Encoded: Date.init().description)!)
     }
     
-    func pick(count: Int) -> Int {
-        let choice = Int(arc4random_uniform(sum))
+	func pick(count: Int, randomSource: RandomSource = FallbackRandomSource.shared) -> Int {
+        let choice = randomSource.next(lowestValue: 0, highestValue: Int(sum)) //Int(arc4random_uniform(sum))
         let i = index(choice: choice)
         // print("id: ", id, "weights: ", weights, "sum: ", sum, "choice: ", choice, "index: ", i)
         return i
