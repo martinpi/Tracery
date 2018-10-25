@@ -14,6 +14,7 @@ public protocol RandomSource {
 	func next(lowestValue: Int, highestValue: Int) -> Int
 }
 
+// this random source is a drop-in replacement for the original implementation
 class FallbackRandomSource : RandomSource {
 	static var shared = FallbackRandomSource()
 	
@@ -29,8 +30,8 @@ class FallbackRandomSource : RandomSource {
 	}
 }
 
-
-class DefaultRandomSource : RandomSource {
+// by using a single source and a set seed we can make sure that results can be reproduced with this source
+class DeterministicRandomSource : RandomSource {
 	
 	var source: GKARC4RandomSource
 	
@@ -45,6 +46,7 @@ class DefaultRandomSource : RandomSource {
 	
 	init(seed: Data) {
 		source = GKARC4RandomSource(seed: seed)
+		source.dropValues(1024)
 	}
 
 }

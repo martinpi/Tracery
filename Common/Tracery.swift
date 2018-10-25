@@ -28,7 +28,8 @@ struct RuleCandidate {
 public class TraceryOptions {
     public var tagStorageType = TaggingPolicy.unilevel
     public var isRuleAnalysisEnabled = true
-	public var useSeededRandom = false
+	public var isDeterministic = false
+	public var seed = 0
     
     public init() { }
 }
@@ -45,6 +46,7 @@ public class Tracery {
     var mods: [String: (String,[String])->String]
     var tagStorage: TagStorage
     var contextStack: ContextStack
+	var randomSource: RandomSource = FallbackRandomSource.shared
     
     public var ruleNames: [String] { return ruleSet.keys.map { $0 } }
 	public var modifierNames: [String] { return mods.keys.map { $0 } }
@@ -63,8 +65,12 @@ public class Tracery {
         tagStorage = options.tagStorageType.storage()
         contextStack = ContextStack()
         tagStorage.tracery = self
-        
-        let rules = rules()
+		
+		if options.isDeterministic {
+			setSeed(options.seed)
+		}
+		
+	    let rules = rules()
         
         rules.forEach { rule, value in
             add(rule: rule, definition: value)
@@ -75,6 +81,14 @@ public class Tracery {
 
         info("tracery ready")
     }
+	
+	func setSeed(_ seed:Int) {
+		var s = seed
+		let data = withUnsafePointer(to: &s) {
+			Data(bytes: UnsafePointer($0), count: MemoryLayout.size(ofValue: seed))
+		}
+		randomSource = DeterministicRandomSource( seed: data )
+	}
     
     func createRuleCandidate(rule:String, text: String) -> RuleCandidate? {
         let e = error
