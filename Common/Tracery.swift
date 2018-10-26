@@ -2,7 +2,8 @@
 //  Tracery.swift
 //  
 //
-//  Created by Benzi on 10/03/17.
+//  Created by Benzi on 10/03/17
+//	Modified by martipi on 26/10/18
 //
 //
 
@@ -11,12 +12,6 @@ import Foundation
 struct RuleMapping {
     let candidates: [RuleCandidate]
     var selector: RuleCandidateSelector
-    
-//    func select() -> RuleCandidate? {
-//        let index = selector.pick(count: candidates.count)
-//        guard index >= 0 && index < candidates.count else { return nil }
-//        return candidates[index]
-//    }
 }
 
 struct RuleCandidate {
@@ -28,9 +23,10 @@ struct RuleCandidate {
 public class TraceryOptions {
     public var tagStorageType = TaggingPolicy.unilevel
     public var isRuleAnalysisEnabled = true
+	public var useStandardModifiers = true
 	public var isDeterministic = false
 	public var seed = 0
-    
+	
     public init() { }
 }
 
@@ -75,8 +71,10 @@ public class Tracery {
         rules.forEach { rule, value in
             add(rule: rule, definition: value)
         }
-        
-		StandardModifiers.installStandardModifiers(t: self)
+		
+		if options.useStandardModifiers {
+			StandardModifiers.installStandardModifiers(t: self)
+		}
         analyzeRuleBook()
 
         info("tracery ready")
