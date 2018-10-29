@@ -47,8 +47,8 @@ public class Tracery {
     public var ruleNames: [String] { return ruleSet.keys.map { $0 } }
 	public var modifierNames: [String] { return mods.keys.map { $0 } }
 
-    convenience public init() {
-        self.init {[:]}
+    convenience public init(_ options: TraceryOptions = TraceryOptions.defaultSet) {
+		self.init(options, rules: {[:]} )
     }
     
     let options: TraceryOptions

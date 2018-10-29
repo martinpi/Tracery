@@ -55,9 +55,9 @@ extension String {
 
 extension Tracery {
     
-    convenience public init(path: String) {
+    convenience public init(_ options: TraceryOptions = TraceryOptions.defaultSet, path: String) {
         if let reader = StreamReader(path: path) {
-            self.init { TextParser.parse(lines: reader) }
+            self.init ( options, rules: { TextParser.parse(lines: reader) } )
         }
         else {
             warn("unable to parse input file: \(path)")
@@ -65,8 +65,8 @@ extension Tracery {
         }
     }
     
-    convenience public init(lines: [String]) {
-        self.init { TextParser.parse(lines: lines) }
+    convenience public init(_ options: TraceryOptions = TraceryOptions.defaultSet, lines: [String]) {
+		self.init ( options, rules: { TextParser.parse(lines: lines) } )
     }
     
 }

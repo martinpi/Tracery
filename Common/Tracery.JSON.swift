@@ -17,9 +17,9 @@ import Foundation
 
 extension Tracery {
 	
-	convenience public init(jsonFile: String) {
+	convenience public init(_ options: TraceryOptions = TraceryOptions.defaultSet, jsonFile: String) {
 		if let reader = StreamReader(path: jsonFile) {
-			self.init { JSONParser.parse(lines: reader) }
+			self.init ( options, rules: { JSONParser.parse(lines: reader) } )
 		}
 		else {
 			warn("unable to parse input file: \(jsonFile)")
@@ -27,8 +27,8 @@ extension Tracery {
 		}
 	}
 	
-	convenience public init(json: [String]) {
-		self.init { JSONParser.parse(lines: json) }
+	convenience public init(_ options: TraceryOptions = TraceryOptions.defaultSet, json: [String]) {
+		self.init ( options, rules: { JSONParser.parse(lines: json) } )
 	}
 	
 	

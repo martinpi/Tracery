@@ -36,7 +36,7 @@ class DeterministicRandomSource : RandomSource {
 	var source: GKARC4RandomSource
 	
 	public func next(lowestValue: Int, highestValue: Int) -> Int {
-		let random = GKRandomDistribution(randomSource: source, lowestValue: lowestValue, highestValue: highestValue)
+		let random = GKRandomDistribution(randomSource: source, lowestValue: lowestValue, highestValue: highestValue-1)
 		return random.nextInt()
 	}
 	

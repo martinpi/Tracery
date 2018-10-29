@@ -15,6 +15,10 @@
 		0E79B9ED216CA66600359AB3 /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E79B9EB216CA66600359AB3 /* Modifiers.swift */; };
 		0E79B9F1216CA76600359AB3 /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E79B9EE216CA6B500359AB3 /* Modifiers.swift */; };
 		0E79B9F2216CA76700359AB3 /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E79B9EE216CA6B500359AB3 /* Modifiers.swift */; };
+		0E9D3C38218758CC00C77E64 /* EmptyRulesetDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96DC01F1E72F2B7008623B8 /* EmptyRulesetDetector.swift */; };
+		0E9D3C39218758CD00C77E64 /* EmptyRulesetDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96DC01F1E72F2B7008623B8 /* EmptyRulesetDetector.swift */; };
+		0E9D3C3D21875B9900C77E64 /* RandomSources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9D3C3C21875B9900C77E64 /* RandomSources.swift */; };
+		0E9D3C3E21875B9900C77E64 /* RandomSources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9D3C3C21875B9900C77E64 /* RandomSources.swift */; };
 		B90E7E751E77C6A000C5BD17 /* Tracery.Eval.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90E7E741E77C6A000C5BD17 /* Tracery.Eval.swift */; };
 		B90E7E761E77C71F00C5BD17 /* Tracery.Eval.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90E7E741E77C6A000C5BD17 /* Tracery.Eval.swift */; };
 		B9127FE51E77AEA40063D5A8 /* Tracery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B96DBFED1E72B993008623B8 /* Tracery.framework */; };
@@ -54,7 +58,6 @@
 		B96DBFCD1E72B631008623B8 /* Tracery.h in Headers */ = {isa = PBXBuildFile; fileRef = B96DBFBF1E72B630008623B8 /* Tracery.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B96DBFFD1E72B994008623B8 /* Tracery.h in Headers */ = {isa = PBXBuildFile; fileRef = B96DBFEF1E72B994008623B8 /* Tracery.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B96DC0291E72F2B7008623B8 /* CyclicReferenceIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96DC01E1E72F2B7008623B8 /* CyclicReferenceIdentifier.swift */; };
-		B96DC02A1E72F2B7008623B8 /* EmptyRulesetDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96DC01F1E72F2B7008623B8 /* EmptyRulesetDetector.swift */; };
 		B96DC02B1E72F2B7008623B8 /* Lexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96DC0201E72F2B7008623B8 /* Lexer.swift */; };
 		B96DC02C1E72F2B7008623B8 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96DC0211E72F2B7008623B8 /* Parser.swift */; };
 		B96DC02D1E72F2B7008623B8 /* RuleCandidateSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96DC0221E72F2B7008623B8 /* RuleCandidateSelector.swift */; };
@@ -78,7 +81,6 @@
 		B9B9CC421E882E260080881D /* Objects.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B9CC411E882E260080881D /* Objects.swift */; };
 		B9B9CC431E882E260080881D /* Objects.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B9CC411E882E260080881D /* Objects.swift */; };
 		B9FCA7F51E73D2D20069F8B6 /* CyclicReferenceIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96DC01E1E72F2B7008623B8 /* CyclicReferenceIdentifier.swift */; };
-		B9FCA7F61E73D2D20069F8B6 /* EmptyRulesetDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96DC01F1E72F2B7008623B8 /* EmptyRulesetDetector.swift */; };
 		B9FCA7F71E73D2D20069F8B6 /* Lexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96DC0201E72F2B7008623B8 /* Lexer.swift */; };
 		B9FCA7F81E73D2D20069F8B6 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96DC0211E72F2B7008623B8 /* Parser.swift */; };
 		B9FCA7F91E73D2D20069F8B6 /* RuleCandidateSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96DC0221E72F2B7008623B8 /* RuleCandidateSelector.swift */; };
@@ -114,6 +116,7 @@
 		0E79B9EB216CA66600359AB3 /* Modifiers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
 		0E79B9EE216CA6B500359AB3 /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
 		0E79BA1A2171D69200359AB3 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		0E9D3C3C21875B9900C77E64 /* RandomSources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomSources.swift; sourceTree = "<group>"; };
 		B90E7E741E77C6A000C5BD17 /* Tracery.Eval.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tracery.Eval.swift; sourceTree = "<group>"; };
 		B9127FE01E77AEA40063D5A8 /* Tracery Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tracery Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9127FE41E77AEA40063D5A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -194,6 +197,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0E71B83921831A63008F829A /* Analyzer */ = {
+			isa = PBXGroup;
+			children = (
+				B96DC01E1E72F2B7008623B8 /* CyclicReferenceIdentifier.swift */,
+				B96DC01F1E72F2B7008623B8 /* EmptyRulesetDetector.swift */,
+				B96DC0241E72F2B7008623B8 /* RuleSelfReferenceIdentifer.swift */,
+				B96DC0251E72F2B7008623B8 /* RulesetAnalyser.swift */,
+				B96DC0261E72F2B7008623B8 /* TagOverrideRuleIdentifier.swift */,
+			);
+			path = Analyzer;
+			sourceTree = "<group>";
+		};
 		B9127FE11E77AEA40063D5A8 /* Tracery Tests macOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -202,7 +217,7 @@
 			path = "Tracery Tests macOS";
 			sourceTree = "<group>";
 		};
-		B9127FFB1E77AF980063D5A8 /* CommonTesting */ = {
+		B9127FFB1E77AF980063D5A8 /* Testing */ = {
 			isa = PBXGroup;
 			children = (
 				B9127FFC1E77AF980063D5A8 /* CandidateProvider.swift */,
@@ -226,17 +241,19 @@
 				B96F75981E84D0CF00C324AB /* WeightedCandidates.swift */,
 				B9B9CC411E882E260080881D /* Objects.swift */,
 				0E79B9EE216CA6B500359AB3 /* Modifiers.swift */,
+				0E9D3C3C21875B9900C77E64 /* RandomSources.swift */,
 			);
-			name = CommonTesting;
-			path = ../CommonTesting;
+			name = Testing;
+			path = ../Testing;
 			sourceTree = "<group>";
 		};
 		B96DBFB21E72B630008623B8 = {
 			isa = PBXGroup;
 			children = (
 				0E79BA1A2171D69200359AB3 /* README.md */,
+				B912802C1E77AFEE0063D5A8 /* Info.plist */,
 				B96DC01D1E72F2B7008623B8 /* Common */,
-				B9127FFB1E77AF980063D5A8 /* CommonTesting */,
+				B9127FFB1E77AF980063D5A8 /* Testing */,
 				B96DBFBE1E72B630008623B8 /* Tracery iOS */,
 				B96DBFEE1E72B993008623B8 /* Tracery Mac */,
 				B9FCA8081E73D6FA0069F8B6 /* Tracery Tests iOS */,
@@ -277,9 +294,7 @@
 		B96DC01D1E72F2B7008623B8 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				B96DC01E1E72F2B7008623B8 /* CyclicReferenceIdentifier.swift */,
-				B96DC01F1E72F2B7008623B8 /* EmptyRulesetDetector.swift */,
-				B912802C1E77AFEE0063D5A8 /* Info.plist */,
+				0E71B83921831A63008F829A /* Analyzer */,
 				B96DC0201E72F2B7008623B8 /* Lexer.swift */,
 				0E79B9EB216CA66600359AB3 /* Modifiers.swift */,
 				B99F305B1E869E08005B0808 /* Parser.Gen2.swift */,
@@ -287,9 +302,6 @@
 				0E71B8362181CF70008F829A /* RandomSource.swift */,
 				B96DC0221E72F2B7008623B8 /* RuleCandidateSelector.swift */,
 				B96DC0231E72F2B7008623B8 /* RuleCandidatesProvider.swift */,
-				B96DC0241E72F2B7008623B8 /* RuleSelfReferenceIdentifer.swift */,
-				B96DC0251E72F2B7008623B8 /* RulesetAnalyser.swift */,
-				B96DC0261E72F2B7008623B8 /* TagOverrideRuleIdentifier.swift */,
 				B975BB7D1E75C91C0076A1EA /* TagStorage.swift */,
 				B90E7E741E77C6A000C5BD17 /* Tracery.Eval.swift */,
 				B96DC0271E72F2B7008623B8 /* Tracery.Logging.swift */,
@@ -497,6 +509,7 @@
 			files = (
 				B91280401E77B0530063D5A8 /* CandidateSelector.swift in Sources */,
 				B9A248EA1E81859A004D60C9 /* TextFormat.swift in Sources */,
+				0E9D3C3E21875B9900C77E64 /* RandomSources.swift in Sources */,
 				B91280441E77B0530063D5A8 /* ExtensionCalls.swift in Sources */,
 				B912803F1E77B0530063D5A8 /* CandidateProvider.swift in Sources */,
 				0E79B9F2216CA76700359AB3 /* Modifiers.swift in Sources */,
@@ -528,9 +541,9 @@
 				B9A248E61E817216004D60C9 /* Tracery.Text.swift in Sources */,
 				B96DC02C1E72F2B7008623B8 /* Parser.swift in Sources */,
 				B96DC02F1E72F2B7008623B8 /* RuleSelfReferenceIdentifer.swift in Sources */,
-				B96DC02A1E72F2B7008623B8 /* EmptyRulesetDetector.swift in Sources */,
 				B96DC0301E72F2B7008623B8 /* RulesetAnalyser.swift in Sources */,
 				B96DC02E1E72F2B7008623B8 /* RuleCandidatesProvider.swift in Sources */,
+				0E9D3C38218758CC00C77E64 /* EmptyRulesetDetector.swift in Sources */,
 				B96DC0321E72F2B7008623B8 /* Tracery.Logging.swift in Sources */,
 				B90E7E751E77C6A000C5BD17 /* Tracery.Eval.swift in Sources */,
 				B96DC02D1E72F2B7008623B8 /* RuleCandidateSelector.swift in Sources */,
@@ -551,11 +564,11 @@
 				0E71B8382181D220008F829A /* RandomSource.swift in Sources */,
 				B9FCA7F51E73D2D20069F8B6 /* CyclicReferenceIdentifier.swift in Sources */,
 				B9A248E71E817216004D60C9 /* Tracery.Text.swift in Sources */,
-				B9FCA7F61E73D2D20069F8B6 /* EmptyRulesetDetector.swift in Sources */,
 				B9FCA7F71E73D2D20069F8B6 /* Lexer.swift in Sources */,
 				B9FCA7F81E73D2D20069F8B6 /* Parser.swift in Sources */,
 				B9FCA7F91E73D2D20069F8B6 /* RuleCandidateSelector.swift in Sources */,
 				B9FCA7FA1E73D2D20069F8B6 /* RuleCandidatesProvider.swift in Sources */,
+				0E9D3C39218758CD00C77E64 /* EmptyRulesetDetector.swift in Sources */,
 				B9FCA7FB1E73D2D20069F8B6 /* RuleSelfReferenceIdentifer.swift in Sources */,
 				B90E7E761E77C71F00C5BD17 /* Tracery.Eval.swift in Sources */,
 				B9FCA7FC1E73D2D20069F8B6 /* RulesetAnalyser.swift in Sources */,
@@ -574,6 +587,7 @@
 			files = (
 				B91280301E77B0520063D5A8 /* CandidateSelector.swift in Sources */,
 				B9A248E91E81859A004D60C9 /* TextFormat.swift in Sources */,
+				0E9D3C3D21875B9900C77E64 /* RandomSources.swift in Sources */,
 				B91280341E77B0520063D5A8 /* ExtensionCalls.swift in Sources */,
 				B912802F1E77B0520063D5A8 /* CandidateProvider.swift in Sources */,
 				0E79B9F1216CA76600359AB3 /* Modifiers.swift in Sources */,
@@ -768,7 +782,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "$(PROJECT_DIR)/../Common/Info.plist";
+				INFOPLIST_FILE = "$(PROJECT_DIR)/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.folded-paper.Tracery";
@@ -789,7 +803,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "$(PROJECT_DIR)/../Common/Info.plist";
+				INFOPLIST_FILE = "$(PROJECT_DIR)/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.folded-paper.Tracery";
@@ -812,7 +826,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = "$(PROJECT_DIR)/../Common/Info.plist";
+				INFOPLIST_FILE = "$(PROJECT_DIR)/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
@@ -837,7 +851,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = "$(PROJECT_DIR)/../Common/Info.plist";
+				INFOPLIST_FILE = "$(PROJECT_DIR)/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
