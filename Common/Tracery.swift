@@ -42,8 +42,12 @@ public class Tracery {
     var mods: [String: (String,[String])->String]
     var tagStorage: TagStorage
     var contextStack: ContextStack
-	var randomSource: RandomSource = FallbackRandomSource.shared
-    
+	var randomSource_: RandomSource = FallbackRandomSource.shared
+	
+	// wonky workaround for getting readonly access to randomSource
+	public var randomSource: RandomSource {
+		return randomSource_
+	}
     public var ruleNames: [String] { return ruleSet.keys.map { $0 } }
 	public var modifierNames: [String] { return mods.keys.map { $0 } }
 
@@ -80,12 +84,12 @@ public class Tracery {
         info("tracery ready")
     }
 	
-	func setSeed(_ seed:Int) {
+	public func setSeed(_ seed:Int) {
 		var s = seed
 		let data = withUnsafePointer(to: &s) {
 			Data(bytes: UnsafePointer($0), count: MemoryLayout.size(ofValue: seed))
 		}
-		randomSource = DeterministicRandomSource( seed: data )
+		randomSource_ = DeterministicRandomSource( seed: data )
 	}
     
     func createRuleCandidate(rule:String, text: String) -> RuleCandidate? {
@@ -102,7 +106,7 @@ public class Tracery {
             return nil
         }
     }
-    
+	
     public func add(modifier: String, transform: @escaping (String)->String) {
         if mods[modifier] != nil {
             warn("overwriting modifier '\(modifier)'")

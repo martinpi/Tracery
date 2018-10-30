@@ -138,7 +138,7 @@ extension Tracery {
                 contextStack.contexts[top].args.removeAll()
                 
             case let .any(values, selector, mods):
-                let choice = values[selector.pick(count: values.count, randomSource: randomSource)]
+                let choice = values[selector.pick(count: values.count, randomSource: randomSource_)]
                 try applyMods(nodes: choice.nodes, mods: mods)
                 // try pushContext(choice.nodes, affectsEvaluationLevel: false)
                 trace("🎲 picked \(choice.nodes)")
@@ -272,7 +272,7 @@ extension Tracery {
                 
                 func selectCandidate(_ mapping: RuleMapping, runTime: Bool) {
 					
-					let index = mapping.selector.pick(count: mapping.candidates.count, randomSource: randomSource)
+					let index = mapping.selector.pick(count: mapping.candidates.count, randomSource: randomSource_)
 					guard index >= 0 && index < mapping.candidates.count else {
 						state = .noExpansion(reason: "no candidates found")
 						return
@@ -290,7 +290,7 @@ extension Tracery {
                     state = .apply([.text("")])
                 }
                 else if let mapping = tagStorage.get(name: name) {
-                    let i = mapping.selector.pick(count: mapping.candidates.count, randomSource: randomSource)
+                    let i = mapping.selector.pick(count: mapping.candidates.count, randomSource: randomSource_)
                     let value = mapping.candidates[i]
                     trace("📗 get tag[\(name)] --> \(value)")
                     state = .apply([.text(value)])

@@ -40,8 +40,6 @@ private extension MutableCollection {
             guard d != 0 else { continue }
             let i = index(firstUnshuffled, offsetBy: d)
             swapAt(firstUnshuffled, i)
-			
-			
         }
     }
 }
