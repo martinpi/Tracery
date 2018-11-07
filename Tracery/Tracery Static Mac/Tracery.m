@@ -7,7 +7,5 @@
 //
 
 #import "Tracery.h"
+#import "Tracery-Swift.h"
 
-@implementation Tracery
-
-@end

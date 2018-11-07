@@ -8,6 +8,3 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Tracery : NSObject
-
-@end

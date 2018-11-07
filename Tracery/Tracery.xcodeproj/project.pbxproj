@@ -19,6 +19,26 @@
 		0E9D3C39218758CD00C77E64 /* EmptyRulesetDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96DC01F1E72F2B7008623B8 /* EmptyRulesetDetector.swift */; };
 		0E9D3C3D21875B9900C77E64 /* RandomSources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9D3C3C21875B9900C77E64 /* RandomSources.swift */; };
 		0E9D3C3E21875B9900C77E64 /* RandomSources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9D3C3C21875B9900C77E64 /* RandomSources.swift */; };
+		0EA325152192FB4100C909D5 /* Tracery.h in Headers */ = {isa = PBXBuildFile; fileRef = 0EA325142192FB4100C909D5 /* Tracery.h */; };
+		0EA325172192FB4200C909D5 /* Tracery.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EA325162192FB4100C909D5 /* Tracery.m */; };
+		0EA3251B2192FC6C00C909D5 /* Tracery.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96DC0281E72F2B7008623B8 /* Tracery.swift */; };
+		0EA3251C2192FD5000C909D5 /* CyclicReferenceIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96DC01E1E72F2B7008623B8 /* CyclicReferenceIdentifier.swift */; };
+		0EA3251D2192FD5000C909D5 /* EmptyRulesetDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96DC01F1E72F2B7008623B8 /* EmptyRulesetDetector.swift */; };
+		0EA3251E2192FD5000C909D5 /* RuleSelfReferenceIdentifer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96DC0241E72F2B7008623B8 /* RuleSelfReferenceIdentifer.swift */; };
+		0EA3251F2192FD5000C909D5 /* RulesetAnalyser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96DC0251E72F2B7008623B8 /* RulesetAnalyser.swift */; };
+		0EA325202192FD5000C909D5 /* TagOverrideRuleIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96DC0261E72F2B7008623B8 /* TagOverrideRuleIdentifier.swift */; };
+		0EA325212192FD5000C909D5 /* Lexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96DC0201E72F2B7008623B8 /* Lexer.swift */; };
+		0EA325222192FD5000C909D5 /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E79B9EB216CA66600359AB3 /* Modifiers.swift */; };
+		0EA325232192FD5000C909D5 /* Parser.Gen2.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99F305B1E869E08005B0808 /* Parser.Gen2.swift */; };
+		0EA325242192FD5000C909D5 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96DC0211E72F2B7008623B8 /* Parser.swift */; };
+		0EA325252192FD5000C909D5 /* RandomSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E71B8362181CF70008F829A /* RandomSource.swift */; };
+		0EA325262192FD5000C909D5 /* RuleCandidateSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96DC0221E72F2B7008623B8 /* RuleCandidateSelector.swift */; };
+		0EA325272192FD5000C909D5 /* RuleCandidatesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96DC0231E72F2B7008623B8 /* RuleCandidatesProvider.swift */; };
+		0EA325282192FD5000C909D5 /* TagStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B975BB7D1E75C91C0076A1EA /* TagStorage.swift */; };
+		0EA325292192FD5000C909D5 /* Tracery.Eval.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90E7E741E77C6A000C5BD17 /* Tracery.Eval.swift */; };
+		0EA3252A2192FD5000C909D5 /* Tracery.Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96DC0271E72F2B7008623B8 /* Tracery.Logging.swift */; };
+		0EA3252B2192FD5000C909D5 /* Tracery.Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A248E51E817216004D60C9 /* Tracery.Text.swift */; };
+		0EA3252C2192FD5000C909D5 /* Tracery.JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E79B9E6216CA65000359AB3 /* Tracery.JSON.swift */; };
 		B90E7E751E77C6A000C5BD17 /* Tracery.Eval.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90E7E741E77C6A000C5BD17 /* Tracery.Eval.swift */; };
 		B90E7E761E77C71F00C5BD17 /* Tracery.Eval.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90E7E741E77C6A000C5BD17 /* Tracery.Eval.swift */; };
 		B9127FE51E77AEA40063D5A8 /* Tracery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B96DBFED1E72B993008623B8 /* Tracery.framework */; };
@@ -117,6 +137,9 @@
 		0E79B9EE216CA6B500359AB3 /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
 		0E79BA1A2171D69200359AB3 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		0E9D3C3C21875B9900C77E64 /* RandomSources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomSources.swift; sourceTree = "<group>"; };
+		0EA325122192FB4100C909D5 /* libTracery.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTracery.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		0EA325142192FB4100C909D5 /* Tracery.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tracery.h; sourceTree = "<group>"; };
+		0EA325162192FB4100C909D5 /* Tracery.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tracery.m; sourceTree = "<group>"; };
 		B90E7E741E77C6A000C5BD17 /* Tracery.Eval.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tracery.Eval.swift; sourceTree = "<group>"; };
 		B9127FE01E77AEA40063D5A8 /* Tracery Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tracery Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9127FE41E77AEA40063D5A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -164,6 +187,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		0EA325102192FB4100C909D5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B9127FDD1E77AEA40063D5A8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -207,6 +237,15 @@
 				B96DC0261E72F2B7008623B8 /* TagOverrideRuleIdentifier.swift */,
 			);
 			path = Analyzer;
+			sourceTree = "<group>";
+		};
+		0EA325132192FB4100C909D5 /* Tracery Static Mac */ = {
+			isa = PBXGroup;
+			children = (
+				0EA325142192FB4100C909D5 /* Tracery.h */,
+				0EA325162192FB4100C909D5 /* Tracery.m */,
+			);
+			path = "Tracery Static Mac";
 			sourceTree = "<group>";
 		};
 		B9127FE11E77AEA40063D5A8 /* Tracery Tests macOS */ = {
@@ -258,6 +297,7 @@
 				B96DBFEE1E72B993008623B8 /* Tracery Mac */,
 				B9FCA8081E73D6FA0069F8B6 /* Tracery Tests iOS */,
 				B9127FE11E77AEA40063D5A8 /* Tracery Tests macOS */,
+				0EA325132192FB4100C909D5 /* Tracery Static Mac */,
 				B96DBFBD1E72B630008623B8 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -269,6 +309,7 @@
 				B96DBFED1E72B993008623B8 /* Tracery.framework */,
 				B9FCA8071E73D6FA0069F8B6 /* Tracery Tests iOS.xctest */,
 				B9127FE01E77AEA40063D5A8 /* Tracery Tests macOS.xctest */,
+				0EA325122192FB4100C909D5 /* libTracery.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -325,6 +366,14 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		0EA3250E2192FB4100C909D5 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0EA325152192FB4100C909D5 /* Tracery.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B96DBFB91E72B630008623B8 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -344,6 +393,23 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		0EA325112192FB4100C909D5 /* Tracery */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0EA3251A2192FB4200C909D5 /* Build configuration list for PBXNativeTarget "Tracery" */;
+			buildPhases = (
+				0EA3250E2192FB4100C909D5 /* Headers */,
+				0EA3250F2192FB4100C909D5 /* Sources */,
+				0EA325102192FB4100C909D5 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Tracery;
+			productName = Tracery;
+			productReference = 0EA325122192FB4100C909D5 /* libTracery.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 		B9127FDF1E77AEA40063D5A8 /* Tracery Tests macOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B9127FE81E77AEA40063D5A8 /* Build configuration list for PBXNativeTarget "Tracery Tests macOS" */;
@@ -426,6 +492,11 @@
 				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = "Benzi Ahamed";
 				TargetAttributes = {
+					0EA325112192FB4100C909D5 = {
+						CreatedOnToolsVersion = 10.0;
+						DevelopmentTeam = 3FJFA95D6E;
+						ProvisioningStyle = Automatic;
+					};
 					B9127FDF1E77AEA40063D5A8 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 4QL7N5894Y;
@@ -465,6 +536,7 @@
 				B96DBFEC1E72B993008623B8 /* Tracery macOS */,
 				B9FCA8061E73D6FA0069F8B6 /* Tracery Tests iOS */,
 				B9127FDF1E77AEA40063D5A8 /* Tracery Tests macOS */,
+				0EA325112192FB4100C909D5 /* Tracery */,
 			);
 		};
 /* End PBXProject section */
@@ -503,6 +575,32 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		0EA3250F2192FB4100C909D5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0EA3252A2192FD5000C909D5 /* Tracery.Logging.swift in Sources */,
+				0EA325272192FD5000C909D5 /* RuleCandidatesProvider.swift in Sources */,
+				0EA3251C2192FD5000C909D5 /* CyclicReferenceIdentifier.swift in Sources */,
+				0EA325242192FD5000C909D5 /* Parser.swift in Sources */,
+				0EA3251B2192FC6C00C909D5 /* Tracery.swift in Sources */,
+				0EA3251D2192FD5000C909D5 /* EmptyRulesetDetector.swift in Sources */,
+				0EA3251F2192FD5000C909D5 /* RulesetAnalyser.swift in Sources */,
+				0EA3251E2192FD5000C909D5 /* RuleSelfReferenceIdentifer.swift in Sources */,
+				0EA325202192FD5000C909D5 /* TagOverrideRuleIdentifier.swift in Sources */,
+				0EA325252192FD5000C909D5 /* RandomSource.swift in Sources */,
+				0EA325282192FD5000C909D5 /* TagStorage.swift in Sources */,
+				0EA325212192FD5000C909D5 /* Lexer.swift in Sources */,
+				0EA3252B2192FD5000C909D5 /* Tracery.Text.swift in Sources */,
+				0EA325262192FD5000C909D5 /* RuleCandidateSelector.swift in Sources */,
+				0EA3252C2192FD5000C909D5 /* Tracery.JSON.swift in Sources */,
+				0EA325222192FD5000C909D5 /* Modifiers.swift in Sources */,
+				0EA325292192FD5000C909D5 /* Tracery.Eval.swift in Sources */,
+				0EA325172192FB4200C909D5 /* Tracery.m in Sources */,
+				0EA325232192FD5000C909D5 /* Parser.Gen2.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B9127FDC1E77AEA40063D5A8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -625,6 +723,51 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		0EA325182192FB4200C909D5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 3FJFA95D6E;
+				EXECUTABLE_PREFIX = lib;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		0EA325192192FB4200C909D5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 3FJFA95D6E;
+				EXECUTABLE_PREFIX = lib;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
 		B9127FE91E77AEA40063D5A8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -893,6 +1036,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0EA3251A2192FB4200C909D5 /* Build configuration list for PBXNativeTarget "Tracery" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0EA325182192FB4200C909D5 /* Debug */,
+				0EA325192192FB4200C909D5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		B9127FE81E77AEA40063D5A8 /* Build configuration list for PBXNativeTarget "Tracery Tests macOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

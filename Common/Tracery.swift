@@ -34,12 +34,12 @@ extension TraceryOptions {
     public static let defaultSet = TraceryOptions()
 }
 
-public class Tracery {
+public class Tracery : NSObject {
     
     var objects = [String: Any]()
-    var ruleSet: [String: RuleMapping]
+    var ruleSet: [String: RuleMapping] = [:]
     var runTimeRuleSet = [String: RuleMapping]()
-    var mods: [String: (String,[String])->String]
+    var mods: [String: (String,[String])->String] = [:]
     var tagStorage: TagStorage
     var contextStack: ContextStack
 	var randomSource_: RandomSource = FallbackRandomSource.shared
@@ -58,14 +58,13 @@ public class Tracery {
     let options: TraceryOptions
     
     public init(_ options: TraceryOptions = TraceryOptions.defaultSet, rules: () -> [String: Any]) {
-        
-        self.options = options
-        mods = [:]
-        ruleSet = [:]
-        tagStorage = options.tagStorageType.storage()
-        contextStack = ContextStack()
-        tagStorage.tracery = self
 		
+		self.options = options
+		self.tagStorage = options.tagStorageType.storage()
+		self.contextStack = ContextStack()
+		super.init()
+		self.tagStorage.tracery = self
+
 		if options.isDeterministic {
 			setSeed(options.seed)
 		}
