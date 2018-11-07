@@ -26,6 +26,14 @@ extension String {
 	func charAt(_ pos: Int) -> Character {		let start = index(startIndex, offsetBy: pos)
 		return Character(String(self[start]))
 	}
+	
+	func capitalizingFirstLetter() -> String {
+		return prefix(1).capitalized + dropFirst()
+	}
+	
+	mutating func capitalizeFirstLetter() {
+		self = self.capitalizingFirstLetter()
+	}
 }
 
 public class StandardModifiers {
@@ -61,8 +69,11 @@ public class StandardModifiers {
 	static func lowercase(s: String) -> String {
 		return s.lowercased()
 	}
-	static func capitalize(s: String) -> String {
+	static func titlecase(s: String) -> String {
 		return s.capitalized
+	}
+	static func capitalize(s: String) -> String {
+		return s.capitalizingFirstLetter()
 	}
 	static func inQuotes(s: String) -> String {
 		return "\""+s+"\""
@@ -141,7 +152,8 @@ public class StandardModifiers {
 	public static func installStandardModifiers(t : Tracery) {
 		t.add(modifier: "uppercase") { return StandardModifiers.uppercase(s: $0) }
 		t.add(modifier: "lowercase") { return StandardModifiers.lowercase(s: $0) }
-		t.add(modifier: "capitalize") { return StandardModifiers.capitalize(s: $0) }
+		t.add(modifier: "title") { return StandardModifiers.titlecase(s: $0) }
+		t.add(modifier: "caps") { return StandardModifiers.capitalize(s: $0) }
 		t.add(modifier: "inQuotes") { return StandardModifiers.inQuotes(s: $0) }
 		t.add(modifier: "comma") { return StandardModifiers.comma(s: $0) }
 		t.add(modifier: "a") { return StandardModifiers.a(s: $0) }
