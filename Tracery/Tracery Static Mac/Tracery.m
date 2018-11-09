@@ -6,6 +6,6 @@
 //  Copyright © 2018 Benzi Ahamed. All rights reserved.
 //
 
-#import "Tracery.h"
 #import "Tracery-Swift.h"
+#import "Tracery.h"
 

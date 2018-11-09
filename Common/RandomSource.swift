@@ -9,13 +9,13 @@
 import Foundation
 import GameKit
 
-public protocol RandomSource {
+@objc public protocol RandomSource {
 	func next() -> Float
 	func next(lowestValue: Int, highestValue: Int) -> Int
 }
 
 // this random source is a drop-in replacement for the original implementation
-class FallbackRandomSource : RandomSource {
+@objc public class FallbackRandomSource : NSObject, RandomSource {
 	static var shared = FallbackRandomSource()
 	
 	public func next(lowestValue: Int, highestValue: Int) -> Int {
@@ -25,13 +25,10 @@ class FallbackRandomSource : RandomSource {
 	public func next() -> Float {
 		return Float.random(in: 0..<1)
 	}
-	
-	init() {
-	}
 }
 
 // by using a single source and a set seed we can make sure that results can be reproduced with this source
-class DeterministicRandomSource : RandomSource {
+@objc public class DeterministicRandomSource : NSObject, RandomSource {
 	
 	var source: GKARC4RandomSource
 	
@@ -47,6 +44,7 @@ class DeterministicRandomSource : RandomSource {
 	init(seed: Data) {
 		source = GKARC4RandomSource(seed: seed)
 		source.dropValues(1024)
+		super.init()
 	}
 
 }

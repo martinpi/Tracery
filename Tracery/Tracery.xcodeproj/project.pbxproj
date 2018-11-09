@@ -19,7 +19,7 @@
 		0E9D3C39218758CD00C77E64 /* EmptyRulesetDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96DC01F1E72F2B7008623B8 /* EmptyRulesetDetector.swift */; };
 		0E9D3C3D21875B9900C77E64 /* RandomSources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9D3C3C21875B9900C77E64 /* RandomSources.swift */; };
 		0E9D3C3E21875B9900C77E64 /* RandomSources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9D3C3C21875B9900C77E64 /* RandomSources.swift */; };
-		0EA325152192FB4100C909D5 /* Tracery.h in Headers */ = {isa = PBXBuildFile; fileRef = 0EA325142192FB4100C909D5 /* Tracery.h */; };
+		0EA325152192FB4100C909D5 /* Tracery.h in Headers */ = {isa = PBXBuildFile; fileRef = 0EA325142192FB4100C909D5 /* Tracery.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0EA325172192FB4200C909D5 /* Tracery.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EA325162192FB4100C909D5 /* Tracery.m */; };
 		0EA3251B2192FC6C00C909D5 /* Tracery.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96DC0281E72F2B7008623B8 /* Tracery.swift */; };
 		0EA3251C2192FD5000C909D5 /* CyclicReferenceIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96DC01E1E72F2B7008623B8 /* CyclicReferenceIdentifier.swift */; };
@@ -400,6 +400,7 @@
 				0EA3250E2192FB4100C909D5 /* Headers */,
 				0EA3250F2192FB4100C909D5 /* Sources */,
 				0EA325102192FB4100C909D5 /* Frameworks */,
+				0EA325482194384900C909D5 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -495,6 +496,7 @@
 					0EA325112192FB4100C909D5 = {
 						CreatedOnToolsVersion = 10.0;
 						DevelopmentTeam = 3FJFA95D6E;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 					};
 					B9127FDF1E77AEA40063D5A8 = {
@@ -573,6 +575,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0EA325482194384900C909D5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "target_dir=${BUILT_PRODUCTS_DIR}/include/${PRODUCT_MODULE_NAME}/\n\n# Ensure the target include path exists\nmkdir -p ${target_dir}\n\n# Copy any file that looks like a Swift generated header to the include path\ncp ${DERIVED_SOURCES_DIR}/*-Swift.h ${target_dir}\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0EA3250F2192FB4100C909D5 /* Sources */ = {
@@ -739,10 +762,12 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "es.brokenrul.${PRODUCT_NAME}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_INCLUDE_PATHS = "$(PRODUCT_NAME)";
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -761,10 +786,12 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "es.brokenrul.${PRODUCT_NAME}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_INCLUDE_PATHS = "$(PRODUCT_NAME)";
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -776,7 +803,7 @@
 				DEVELOPMENT_TEAM = 4QL7N5894Y;
 				INFOPLIST_FILE = "Tracery Tests macOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.folded-paper.Tracery-Tests-macOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
@@ -792,7 +819,7 @@
 				DEVELOPMENT_TEAM = 4QL7N5894Y;
 				INFOPLIST_FILE = "Tracery Tests macOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.folded-paper.Tracery-Tests-macOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;

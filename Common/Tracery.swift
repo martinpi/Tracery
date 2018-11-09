@@ -20,21 +20,21 @@ struct RuleCandidate {
 }
 
 
-public class TraceryOptions {
+@objc public class TraceryOptions : NSObject {
     public var tagStorageType = TaggingPolicy.unilevel
-    public var isRuleAnalysisEnabled = true
-	public var useStandardModifiers = true
-	public var isDeterministic = false
-	public var seed = 0
+    @objc public var isRuleAnalysisEnabled = true
+	@objc public var useStandardModifiers = true
+	@objc public var isDeterministic = false
+	@objc public var seed = 0
 	
-    public init() { }
+//    public init() { }
 }
 
 extension TraceryOptions {
     public static let defaultSet = TraceryOptions()
 }
 
-public class Tracery : NSObject {
+@objc public class Tracery : NSObject {
     
     var objects = [String: Any]()
     var ruleSet: [String: RuleMapping] = [:]

@@ -18,7 +18,7 @@ class TestModifiers: XCTestCase {
 		t.add(object: "jack", named: "person")
 		XCTAssertEqual(t.expand("#person.uppercase#"), "JACK")
 		XCTAssertEqual(t.expand("#person.lowercase#"), "jack")
-		XCTAssertEqual(t.expand("#person.capitalize#"), "Jack")
+		XCTAssertEqual(t.expand("#person.caps#"), "Jack")
 	}
 	
 	func testSigns() {
