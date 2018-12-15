@@ -121,7 +121,7 @@ extension Parser {
                 nodes.append(.createRule(name: name, values: candidates))
                 try parseAny([.HASH, .RIGHT_CURLY_BRACKET], "expected # or } after new rule definition")
                 return nodes
-                
+								
             case (_, _):
                 // #rule?.mod1.mod2().mod3(list)#
                 let name = name ?? ""

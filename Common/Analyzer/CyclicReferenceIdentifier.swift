@@ -358,7 +358,3 @@ extension Graph {
         return JohnsonCircuitFindingAlgorithm.findCycles(graph: self)
     }
 }
-
-
-
-

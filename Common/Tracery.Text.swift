@@ -51,6 +51,28 @@ extension String {
 		self = self.trimLeadingSpaces().trimTrailingSpaces()
 	}
 
+	func matches(for regexPattern: String) -> [[String]] {
+		do {
+			let text = self
+			let regex = try NSRegularExpression(pattern: regexPattern)
+			let matches = regex.matches(in: text,
+										range: NSRange(text.startIndex..., in: text))
+			return matches.map { match in
+				return (0..<match.numberOfRanges).map {
+					let rangeBounds = match.range(at: $0)
+					guard let range = Range(rangeBounds, in: text) else {
+						return ""
+					}
+					return String(text[range])
+				}
+			}
+		} catch let error {
+			print("invalid regex: \(error.localizedDescription)")
+			return []
+		}
+	}
+	
+
 }
 
 extension Tracery {
@@ -58,6 +80,7 @@ extension Tracery {
     convenience public init(_ options: TraceryOptions = TraceryOptions.defaultSet, path: String) {
         if let reader = StreamReader(path: path) {
             self.init ( options, rules: { TextParser.parse(lines: reader) } )
+			regex.patterns = RegexParser.parse(lines: reader)
         }
         else {
             warn("unable to parse input file: \(path)")
@@ -67,8 +90,32 @@ extension Tracery {
     
     convenience public init(_ options: TraceryOptions = TraceryOptions.defaultSet, lines: [String]) {
 		self.init ( options, rules: { TextParser.parse(lines: lines) } )
+		regex.patterns = RegexParser.parse(lines: lines)
     }
     
+}
+
+struct RegexParser {
+	static func parse<S: Sequence>(lines: S) -> [String: String] where S.Iterator.Element == String {
+		
+		var rex = [String:String]()
+		
+		for line in lines {
+			if line.hasPrefix("//") {
+				//				let testString = "This string is a curse"
+				let expr = line.matches(for: "\\/\\/([^=>]+)==>([^=>]+)")
+				if expr[0].count < 2 {
+					Tracery.log(level: Tracery.LoggingLevel.errors, message: line + " is not a valid regular expression")
+					continue
+				}
+				rex[expr[0][1]] = expr[0][2]
+				
+				//				buffer = testString.replaceMatches(for: expr[0][1], template: expr[0][2])
+			}
+		}
+		
+		return rex
+	}
 }
 
 struct TextParser {
@@ -82,12 +129,52 @@ struct TextParser {
         
         var ruleSet = [String: [String] ]()
         var rule = ""
+		var buffer = ""
+		var inmulti = false
 		
         for line in lines {
+			
+//			if line.hasPrefix("//") {
+////				let testString = "This string is a curse"
+//				let expr = line.matches(for: "\\/\\/([^=]+)=([^=]+)")
+//				if expr[0].count < 2 {
+//					Tracery.log(level: Tracery.LoggingLevel.errors, message: line + " is not a valid regular expression")
+//					continue
+//				}
+////				buffer = testString.replaceMatches(for: expr[0][1], template: expr[0][2])
+//			}
+			
+			if line.hasPrefix("'''") {
+				if !inmulti {
+					inmulti = true
+					buffer = ""
+					continue
+				} else {
+					inmulti = false
+					if rule != "" {
+						ruleSet[rule]!.append(buffer)
+						continue
+					} else {
+						warn("line '\(buffer)' has no valid rule")
+					}
+				}
+			} else {
+				if inmulti {
+					// only add newline between lines, not in the beginning
+					if buffer.count > 0 {
+						buffer = buffer + "\n" + line
+					} else {
+						buffer = line
+					}
+					
+					continue
+				}
+			}
 			// ignore comments and blank lines
-			if line.hasPrefix("\\") || line.count == 0 {
+			if line.hasPrefix("\\") || line.count == 0 || line.hasPrefix("//") {
 				continue
 			}
+			
 
 			if line.hasPrefix("[") && line.hasSuffix("]") && !line.hasPrefix("[while") {
 				let start = line.index(after: line.startIndex)
@@ -100,6 +187,8 @@ struct TextParser {
 			} else {
 				if rule != "" {
 					ruleSet[rule]!.append(line)
+				} else {
+					warn("line '\(buffer)' has no valid rule")
 				}
             }
         }

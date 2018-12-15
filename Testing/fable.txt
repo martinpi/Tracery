@@ -29,3 +29,9 @@ Finds
 Meets
 Tricks
 Outwits
+
+[multiline]
+'''
+the first
+the second
+'''

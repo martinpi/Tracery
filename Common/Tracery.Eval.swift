@@ -22,7 +22,10 @@ extension Tracery {
         let output = try eval(nodes)
         
         trace("📘 output \(text) ==> \(output)")
-        return output
+		
+		let final = regex.applyAll(output)
+		
+        return final
     }
     
     func eval(_ nodes: [ParserNode]) throws -> String {

@@ -26,8 +26,6 @@ struct RuleCandidate {
 	@objc public var useStandardModifiers = true
 	@objc public var isDeterministic = false
 	@objc public var seed = 0
-	
-//    public init() { }
 }
 
 extension TraceryOptions {
@@ -43,6 +41,7 @@ extension TraceryOptions {
     var tagStorage: TagStorage
     var contextStack: ContextStack
 	var randomSource_: RandomSource = FallbackRandomSource.shared
+	var regex = RegularExpressions()
 	
 	// wonky workaround for getting readonly access to randomSource
 	public var randomSource: RandomSource {

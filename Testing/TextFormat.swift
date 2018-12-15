@@ -24,7 +24,34 @@ class TextFormat: XCTestCase {
         XCTAssertEqual(t.expand("#origin#"), "hello world")
         
     }
+	
+	func testPlaintextFormatMultiline() {
+		
+		let fableFile = Bundle(for: type(of: self)).path(forResource: "fable", ofType: "txt")!
+		let t = Tracery.init(path: fableFile)
+		
+			print(t.expand("#multiline#"))
+			XCTAssertFalse(t.expand("#multiline#").isEmpty)
+			XCTAssertEqual(t.expand("#multiline#"), "the first\nthe second")
 
+	}
+
+	func testPlaintextFormatRegexp() {
+		
+		let lines = [
+			"//string==>gift",
+			"//cow==>curse",
+			"[origin]",
+			"This string is a cow",
+			]
+		
+		let t = Tracery(lines: lines)
+
+		print(t.expand("#origin#"))
+		XCTAssertEqual(t.expand("#origin#"), "This gift is a curse")
+
+	}
+	
 	func testPlaintextFormatAllowsMultiRuleCreation() {
 		
 		let lines = [
