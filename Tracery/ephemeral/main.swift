@@ -152,7 +152,7 @@ class Ephemerald {
 		
 		consoleIO.writeMessage("Processing: "+(inputfile ?? "stdin")+" => "+(outputfile ?? "stdout"))
 
-		Tracery.logLevel = Ephemerald.verbose ? .verbose : .warning
+		Tracery.logLevel = Ephemerald.verbose ? .verbose : .warnings
 
 		var output = ""
 		
