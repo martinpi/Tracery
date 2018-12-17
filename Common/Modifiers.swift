@@ -159,6 +159,10 @@ public class StandardModifiers {
 		t.add(modifier: "a") { return StandardModifiers.a(s: $0) }
 		t.add(modifier: "s") { return StandardModifiers.s(s: $0) }
 		t.add(modifier: "ed") { return StandardModifiers.ed(s: $0) }
+		t.add(modifier: "n") { input in
+			return input + "\n"
+		}
+
 	}
 	
 }
