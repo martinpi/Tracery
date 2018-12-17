@@ -51,12 +51,17 @@ extension String {
 		self = self.trimLeadingSpaces().trimTrailingSpaces()
 	}
 
-	func matches(for regexPattern: String) -> [[String]] {
+	func matches(for regexPattern: String) -> [[String]]? {
 		do {
 			let text = self
 			let regex = try NSRegularExpression(pattern: regexPattern)
 			let matches = regex.matches(in: text,
 										range: NSRange(text.startIndex..., in: text))
+			
+			if matches.count == 0 {
+				return nil
+			}
+			
 			return matches.map { match in
 				return (0..<match.numberOfRanges).map {
 					let rangeBounds = match.range(at: $0)
@@ -68,7 +73,7 @@ extension String {
 			}
 		} catch let error {
 			print("invalid regex: \(error.localizedDescription)")
-			return []
+			return nil
 		}
 	}
 	
@@ -102,15 +107,13 @@ struct RegexParser {
 		
 		for line in lines {
 			if line.hasPrefix("//") {
-				//				let testString = "This string is a curse"
-				let expr = line.matches(for: "\\/\\/([^=>]+)==>([^=>]+)")
-				if expr[0].count < 2 {
-					Tracery.log(level: Tracery.LoggingLevel.errors, message: line + " is not a valid regular expression")
-					continue
+				if let expr = line.matches(for: "\\/\\/([^=>]+)==>([^=>]+)") {
+					if expr.count > 0 && expr[0].count < 2 {
+						Tracery.log(level: Tracery.LoggingLevel.errors, message: line + " is not a valid regular expression")
+						continue
+					}
+					rex[expr[0][1]] = expr[0][2]
 				}
-				rex[expr[0][1]] = expr[0][2]
-				
-				//				buffer = testString.replaceMatches(for: expr[0][1], template: expr[0][2])
 			}
 		}
 		

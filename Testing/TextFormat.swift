@@ -52,6 +52,17 @@ class TextFormat: XCTestCase {
 
 	}
 	
+	func testRegexp() {
+		let rex = RegularExpressions()
+		
+		rex.patterns["a"] = "A"
+		rex.patterns["b"] = "B"
+		rex.patterns["[0-9]"] = "Oh"
+
+		XCTAssertEqual(rex.applyAll("abba"), "ABBA")
+		XCTAssertEqual(rex.applyAll("0123"), "OhOhOhOh")
+	}
+	
 	func testPlaintextFormatAllowsMultiRuleCreation() {
 		
 		let lines = [
