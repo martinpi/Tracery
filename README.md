@@ -2,37 +2,7 @@
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-0473B3.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![License](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat)](https://github.com/martinpi/Tracery)
  
- # Ephemeral – Proedural Text Generation
-  
-  ## Contents
-- [Introduction](#introduction)
-    - [Installation](#installation)
-- [Basic usage](#basic-usage)
-- [Tags](#tags)
-    - [Simple story](#simple-story)
-    - [Random numbers](#random-numbers)
-- [Modifiers](#modifiers)
-- [Methods](#methods)
-- [Calls](#calls)
-- [Advanced Usage](#advanced-usage)
-    - [Custom Content Selectors](#custom-content-selectors)
-        - [Pick First Item Selector](#pick-first-item-selector)
-        - [Custom Random Item Selector](#custom-random-item-selector)
-    - [Custom Candidate Provider](#custom-candidate-provider)
-        - [Weighted Distributions](#weighted-distributions)
-    - [Recursion](#recursion)
-        - [Rule Expansions](#rule-expansions)
-        - [Logging](#logging)
-        - [Chaining Evaluations](#chaining-evaluations)
-        - [Hierarchical Tag Storage](#hierarchical-tag-storage)
-    - [Control Flow](#control-flow)
-        - [if block](#if-block)
-        - [while block](#while-block)
-    - [Text Format](#text-format)
-- [Tracery Grammar](#tracery-grammar)
-- [Conclusion](#conclusion)
- 
- ## Introduction
+ # Ephemeral – A Tool for Procedural Text Generation
 
 Ephemeral is a text generation tool based on BenziAhamed's [Swift port of Tracery](https://github.com/BenziAhamed/Tracery).  
 
