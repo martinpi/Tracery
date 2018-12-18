@@ -39,6 +39,30 @@
 		0EEBF3FB21C7D3D900FFFC37 /* Tracery.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96DC0281E72F2B7008623B8 /* Tracery.swift */; };
 		0EEBF3FC21C7D3D900FFFC37 /* Tracery.Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A248E51E817216004D60C9 /* Tracery.Text.swift */; };
 		0EEBF3FD21C7D3D900FFFC37 /* Tracery.JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E79B9E6216CA65000359AB3 /* Tracery.JSON.swift */; };
+		0EEBF40621C8F3EA00FFFC37 /* Kalk.Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEBF3FF21C8F3EA00FFFC37 /* Kalk.Parser.swift */; };
+		0EEBF40721C8F3EA00FFFC37 /* Kalk.Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEBF3FF21C8F3EA00FFFC37 /* Kalk.Parser.swift */; };
+		0EEBF40A21C8F3EA00FFFC37 /* Kalk.Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEBF3FF21C8F3EA00FFFC37 /* Kalk.Parser.swift */; };
+		0EEBF40B21C8F3EA00FFFC37 /* Kalk.Nodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEBF40021C8F3EA00FFFC37 /* Kalk.Nodes.swift */; };
+		0EEBF40C21C8F3EA00FFFC37 /* Kalk.Nodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEBF40021C8F3EA00FFFC37 /* Kalk.Nodes.swift */; };
+		0EEBF40F21C8F3EA00FFFC37 /* Kalk.Nodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEBF40021C8F3EA00FFFC37 /* Kalk.Nodes.swift */; };
+		0EEBF41021C8F3EA00FFFC37 /* Kalk.Interpreter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEBF40121C8F3EA00FFFC37 /* Kalk.Interpreter.swift */; };
+		0EEBF41121C8F3EA00FFFC37 /* Kalk.Interpreter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEBF40121C8F3EA00FFFC37 /* Kalk.Interpreter.swift */; };
+		0EEBF41421C8F3EA00FFFC37 /* Kalk.Interpreter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEBF40121C8F3EA00FFFC37 /* Kalk.Interpreter.swift */; };
+		0EEBF41521C8F3EA00FFFC37 /* Kalk.Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEBF40221C8F3EA00FFFC37 /* Kalk.Regex.swift */; };
+		0EEBF41621C8F3EA00FFFC37 /* Kalk.Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEBF40221C8F3EA00FFFC37 /* Kalk.Regex.swift */; };
+		0EEBF41921C8F3EA00FFFC37 /* Kalk.Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEBF40221C8F3EA00FFFC37 /* Kalk.Regex.swift */; };
+		0EEBF41A21C8F3EA00FFFC37 /* Kalk.SSA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEBF40321C8F3EA00FFFC37 /* Kalk.SSA.swift */; };
+		0EEBF41B21C8F3EA00FFFC37 /* Kalk.SSA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEBF40321C8F3EA00FFFC37 /* Kalk.SSA.swift */; };
+		0EEBF41E21C8F3EA00FFFC37 /* Kalk.SSA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEBF40321C8F3EA00FFFC37 /* Kalk.SSA.swift */; };
+		0EEBF41F21C8F3EA00FFFC37 /* Kalk.String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEBF40421C8F3EA00FFFC37 /* Kalk.String.swift */; };
+		0EEBF42021C8F3EA00FFFC37 /* Kalk.String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEBF40421C8F3EA00FFFC37 /* Kalk.String.swift */; };
+		0EEBF42321C8F3EA00FFFC37 /* Kalk.String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEBF40421C8F3EA00FFFC37 /* Kalk.String.swift */; };
+		0EEBF42421C8F3EA00FFFC37 /* Kalk.Lexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEBF40521C8F3EA00FFFC37 /* Kalk.Lexer.swift */; };
+		0EEBF42521C8F3EA00FFFC37 /* Kalk.Lexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEBF40521C8F3EA00FFFC37 /* Kalk.Lexer.swift */; };
+		0EEBF42821C8F3EA00FFFC37 /* Kalk.Lexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEBF40521C8F3EA00FFFC37 /* Kalk.Lexer.swift */; };
+		0EEBF42A21C8F68B00FFFC37 /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEBF42921C8F68A00FFFC37 /* ArrayExtensions.swift */; };
+		0EEBF42B21C8F68B00FFFC37 /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEBF42921C8F68A00FFFC37 /* ArrayExtensions.swift */; };
+		0EEBF42C21C8F68B00FFFC37 /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEBF42921C8F68A00FFFC37 /* ArrayExtensions.swift */; };
 		0EF709DC21AD8DED0071145F /* JSONFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF709DB21AD8DED0071145F /* JSONFormat.swift */; };
 		0EF709DD21AD8DED0071145F /* JSONFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF709DB21AD8DED0071145F /* JSONFormat.swift */; };
 		0EF709DF21C54CED0071145F /* RegularExpressions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF709DE21C54CED0071145F /* RegularExpressions.swift */; };
@@ -157,6 +181,14 @@
 		0E9D3C3C21875B9900C77E64 /* RandomSources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomSources.swift; sourceTree = "<group>"; };
 		0EEBF3E421C7D3CA00FFFC37 /* ephemeral */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ephemeral; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EEBF3E621C7D3CA00FFFC37 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		0EEBF3FF21C8F3EA00FFFC37 /* Kalk.Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Kalk.Parser.swift; sourceTree = "<group>"; };
+		0EEBF40021C8F3EA00FFFC37 /* Kalk.Nodes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Kalk.Nodes.swift; sourceTree = "<group>"; };
+		0EEBF40121C8F3EA00FFFC37 /* Kalk.Interpreter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Kalk.Interpreter.swift; sourceTree = "<group>"; };
+		0EEBF40221C8F3EA00FFFC37 /* Kalk.Regex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Kalk.Regex.swift; sourceTree = "<group>"; };
+		0EEBF40321C8F3EA00FFFC37 /* Kalk.SSA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Kalk.SSA.swift; sourceTree = "<group>"; };
+		0EEBF40421C8F3EA00FFFC37 /* Kalk.String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Kalk.String.swift; sourceTree = "<group>"; };
+		0EEBF40521C8F3EA00FFFC37 /* Kalk.Lexer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Kalk.Lexer.swift; sourceTree = "<group>"; };
+		0EEBF42921C8F68A00FFFC37 /* ArrayExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtensions.swift; sourceTree = "<group>"; };
 		0EF709DB21AD8DED0071145F /* JSONFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONFormat.swift; sourceTree = "<group>"; };
 		0EF709DE21C54CED0071145F /* RegularExpressions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularExpressions.swift; sourceTree = "<group>"; };
 		B90E7E741E77C6A000C5BD17 /* Tracery.Eval.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tracery.Eval.swift; sourceTree = "<group>"; };
@@ -266,6 +298,21 @@
 			path = ephemeral;
 			sourceTree = "<group>";
 		};
+		0EEBF3FE21C8F3E900FFFC37 /* Kalk */ = {
+			isa = PBXGroup;
+			children = (
+				0EEBF42921C8F68A00FFFC37 /* ArrayExtensions.swift */,
+				0EEBF3FF21C8F3EA00FFFC37 /* Kalk.Parser.swift */,
+				0EEBF40021C8F3EA00FFFC37 /* Kalk.Nodes.swift */,
+				0EEBF40121C8F3EA00FFFC37 /* Kalk.Interpreter.swift */,
+				0EEBF40221C8F3EA00FFFC37 /* Kalk.Regex.swift */,
+				0EEBF40321C8F3EA00FFFC37 /* Kalk.SSA.swift */,
+				0EEBF40421C8F3EA00FFFC37 /* Kalk.String.swift */,
+				0EEBF40521C8F3EA00FFFC37 /* Kalk.Lexer.swift */,
+			);
+			path = Kalk;
+			sourceTree = "<group>";
+		};
 		B9127FE11E77AEA40063D5A8 /* Tracery Tests macOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -355,6 +402,7 @@
 			isa = PBXGroup;
 			children = (
 				0E71B83921831A63008F829A /* Analyzer */,
+				0EEBF3FE21C8F3E900FFFC37 /* Kalk */,
 				B96DC0201E72F2B7008623B8 /* Lexer.swift */,
 				0E79B9EB216CA66600359AB3 /* Modifiers.swift */,
 				B99F305B1E869E08005B0808 /* Parser.Gen2.swift */,
@@ -592,25 +640,33 @@
 			buildActionMask = 2147483647;
 			files = (
 				0EEBF3FA21C7D3D900FFFC37 /* Tracery.Logging.swift in Sources */,
+				0EEBF40F21C8F3EA00FFFC37 /* Kalk.Nodes.swift in Sources */,
 				0EEBF3F721C7D3D900FFFC37 /* RuleCandidatesProvider.swift in Sources */,
 				0EEBF3FB21C7D3D900FFFC37 /* Tracery.swift in Sources */,
 				0EEBF3ED21C7D3D900FFFC37 /* RuleSelfReferenceIdentifer.swift in Sources */,
+				0EEBF41421C8F3EA00FFFC37 /* Kalk.Interpreter.swift in Sources */,
 				0EEBF3F021C7D3D900FFFC37 /* Lexer.swift in Sources */,
 				0EEBF3F321C7D3D900FFFC37 /* Parser.swift in Sources */,
 				0EEBF3EF21C7D3D900FFFC37 /* TagOverrideRuleIdentifier.swift in Sources */,
+				0EEBF40A21C8F3EA00FFFC37 /* Kalk.Parser.swift in Sources */,
 				0EEBF3E721C7D3CA00FFFC37 /* main.swift in Sources */,
 				0EEBF3F121C7D3D900FFFC37 /* Modifiers.swift in Sources */,
+				0EEBF42321C8F3EA00FFFC37 /* Kalk.String.swift in Sources */,
 				0EEBF3EE21C7D3D900FFFC37 /* RulesetAnalyser.swift in Sources */,
+				0EEBF41E21C8F3EA00FFFC37 /* Kalk.SSA.swift in Sources */,
 				0EEBF3EB21C7D3D900FFFC37 /* CyclicReferenceIdentifier.swift in Sources */,
 				0EEBF3F821C7D3D900FFFC37 /* TagStorage.swift in Sources */,
 				0EEBF3F521C7D3D900FFFC37 /* RegularExpressions.swift in Sources */,
 				0EEBF3F621C7D3D900FFFC37 /* RuleCandidateSelector.swift in Sources */,
 				0EEBF3EC21C7D3D900FFFC37 /* EmptyRulesetDetector.swift in Sources */,
+				0EEBF42821C8F3EA00FFFC37 /* Kalk.Lexer.swift in Sources */,
 				0EEBF3FC21C7D3D900FFFC37 /* Tracery.Text.swift in Sources */,
 				0EEBF3F921C7D3D900FFFC37 /* Tracery.Eval.swift in Sources */,
+				0EEBF42C21C8F68B00FFFC37 /* ArrayExtensions.swift in Sources */,
 				0EEBF3F421C7D3D900FFFC37 /* RandomSource.swift in Sources */,
 				0EEBF3F221C7D3D900FFFC37 /* Parser.Gen2.swift in Sources */,
 				0EEBF3FD21C7D3D900FFFC37 /* Tracery.JSON.swift in Sources */,
+				0EEBF41921C8F3EA00FFFC37 /* Kalk.Regex.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -657,15 +713,23 @@
 				B96DC0301E72F2B7008623B8 /* RulesetAnalyser.swift in Sources */,
 				B96DC02E1E72F2B7008623B8 /* RuleCandidatesProvider.swift in Sources */,
 				0E9D3C38218758CC00C77E64 /* EmptyRulesetDetector.swift in Sources */,
+				0EEBF41A21C8F3EA00FFFC37 /* Kalk.SSA.swift in Sources */,
 				B96DC0321E72F2B7008623B8 /* Tracery.Logging.swift in Sources */,
 				B90E7E751E77C6A000C5BD17 /* Tracery.Eval.swift in Sources */,
 				B96DC02D1E72F2B7008623B8 /* RuleCandidateSelector.swift in Sources */,
 				0E79B9EC216CA66600359AB3 /* Modifiers.swift in Sources */,
 				B96DC02B1E72F2B7008623B8 /* Lexer.swift in Sources */,
+				0EEBF41521C8F3EA00FFFC37 /* Kalk.Regex.swift in Sources */,
 				B96DC0311E72F2B7008623B8 /* TagOverrideRuleIdentifier.swift in Sources */,
 				B96DC0291E72F2B7008623B8 /* CyclicReferenceIdentifier.swift in Sources */,
+				0EEBF41021C8F3EA00FFFC37 /* Kalk.Interpreter.swift in Sources */,
+				0EEBF41F21C8F3EA00FFFC37 /* Kalk.String.swift in Sources */,
 				B99F305C1E869E08005B0808 /* Parser.Gen2.swift in Sources */,
+				0EEBF40B21C8F3EA00FFFC37 /* Kalk.Nodes.swift in Sources */,
+				0EEBF42421C8F3EA00FFFC37 /* Kalk.Lexer.swift in Sources */,
 				0EF709DF21C54CED0071145F /* RegularExpressions.swift in Sources */,
+				0EEBF40621C8F3EA00FFFC37 /* Kalk.Parser.swift in Sources */,
+				0EEBF42A21C8F68B00FFFC37 /* ArrayExtensions.swift in Sources */,
 				0E79B9E7216CA65000359AB3 /* Tracery.JSON.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -683,15 +747,23 @@
 				B9FCA7F91E73D2D20069F8B6 /* RuleCandidateSelector.swift in Sources */,
 				B9FCA7FA1E73D2D20069F8B6 /* RuleCandidatesProvider.swift in Sources */,
 				0E9D3C39218758CD00C77E64 /* EmptyRulesetDetector.swift in Sources */,
+				0EEBF41B21C8F3EA00FFFC37 /* Kalk.SSA.swift in Sources */,
 				B9FCA7FB1E73D2D20069F8B6 /* RuleSelfReferenceIdentifer.swift in Sources */,
 				B90E7E761E77C71F00C5BD17 /* Tracery.Eval.swift in Sources */,
 				B9FCA7FC1E73D2D20069F8B6 /* RulesetAnalyser.swift in Sources */,
 				0E79B9ED216CA66600359AB3 /* Modifiers.swift in Sources */,
 				B9FCA7FD1E73D2D20069F8B6 /* TagOverrideRuleIdentifier.swift in Sources */,
+				0EEBF41621C8F3EA00FFFC37 /* Kalk.Regex.swift in Sources */,
 				B9FCA7FE1E73D2D20069F8B6 /* Tracery.Logging.swift in Sources */,
 				B9FCA7FF1E73D2D20069F8B6 /* Tracery.swift in Sources */,
+				0EEBF41121C8F3EA00FFFC37 /* Kalk.Interpreter.swift in Sources */,
+				0EEBF42021C8F3EA00FFFC37 /* Kalk.String.swift in Sources */,
 				B99F305D1E869E08005B0808 /* Parser.Gen2.swift in Sources */,
+				0EEBF40C21C8F3EA00FFFC37 /* Kalk.Nodes.swift in Sources */,
+				0EEBF42521C8F3EA00FFFC37 /* Kalk.Lexer.swift in Sources */,
 				0EF709E021C54CED0071145F /* RegularExpressions.swift in Sources */,
+				0EEBF40721C8F3EA00FFFC37 /* Kalk.Parser.swift in Sources */,
+				0EEBF42B21C8F68B00FFFC37 /* ArrayExtensions.swift in Sources */,
 				0E79B9E8216CA65000359AB3 /* Tracery.JSON.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -865,7 +937,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -920,7 +992,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -948,7 +1020,7 @@
 				PRODUCT_MODULE_NAME = Tracery;
 				PRODUCT_NAME = Tracery;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -969,7 +1041,7 @@
 				PRODUCT_MODULE_NAME = Tracery;
 				PRODUCT_NAME = Tracery;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -994,7 +1066,7 @@
 				PRODUCT_NAME = Tracery;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -1019,7 +1091,7 @@
 				PRODUCT_NAME = Tracery;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
