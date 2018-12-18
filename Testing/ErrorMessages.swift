@@ -28,6 +28,9 @@ class ErrorMessages: XCTestCase {
         checkRule("[tag:a,]",    "error: expected tag value after ,")
         checkRule("{new(a,b}",   "error: expected ) after rule candidate list")
         checkRule("{new(a,b)",   "error: expected # or } after new rule definition")
+		
+		checkRule("#.k(sin(3.5))#",    "error: closing # or } not found for rule ''")
+
     }
 
     func checkRule(_ target: String, _ prefix: String) {

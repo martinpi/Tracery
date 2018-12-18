@@ -36,6 +36,10 @@ public class KalkInterpreter {
 		registerUnaryFunction("sin", KalkSin)
 		registerUnaryFunction("cos", KalkCos)
 		registerUnaryFunction("rand", KalkRand)
+		
+		registerUnaryFunction("sqrt") { value -> KalkValue in
+			return getDouble(value:sqrt(value.getDouble()!))
+		}
 	}
 	
 	public static func interpret(_ string: String) -> String {
