@@ -312,7 +312,7 @@ t.expand("There once was a man named #city.reverse.title#, who came from the cit
  > The original implementation at Tracery.io a couple of has modifiers that allows prefixing a/an to words, pluralization, caps etc. This library replicates all the original modifiers and adds two important new ones: the modifier ".n" can be used to add a newline to the document and the modifier ".k(formula)" can be used for making calculations. Currently calculations always return float numbers and the following operations are supported: 
  - basic binary operations: `+`,`-`, `*`, `/`
  - brackets for grouping: `()`
- - complex unary oprations: `sin(rad)`, `cos(rad)`, `rand(range)`
+ - complex unary oprations: `sin(rad)`, `cos(rad)`, `rand(range)`, `sqrt(value)`
  
  Due to how the parsing consumes brackets only bracket-less operations can be performed directly. Otherwise the syntax is as follows:
 
@@ -445,6 +445,23 @@ t.expand("#letter#")
 
 
 ****
+
+## Advanced Usage: Deterministic Execution
+
+In order to allow for replicable results, a deterministic random generator can be chosen. This is achieved by setting the option `isDeterministic` to true and supplying a random seed with the option `seed`. Both can be found in `TraceryOptions`. Here is an example:
+
+```swift
+
+let options = TraceryOptions.defaultSet
+options.seed = 15
+options.isDeterministic = true
+
+Tracery.init(options, lines: strings)
+
+```
+
+The above example would expand a grammar similarly over multiple executions.
+
 
 ## Advanced Usage: Custom Content Selectors
  
