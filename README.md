@@ -2,12 +2,12 @@
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-0473B3.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![License](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat)](https://github.com/martinpi/Tracery)
  
- ![Tracery - powerful content generation](logo.png)
+ # Ephemeral – Proedural Text Generation
   
-# Contents
+  ## Contents
 - [Introduction](#introduction)
     - [Installation](#installation)
-    - [Basic usage](#basic-usage)
+- [Basic usage](#basic-usage)
 - [Tags](#tags)
     - [Simple story](#simple-story)
     - [Random numbers](#random-numbers)
@@ -32,15 +32,17 @@
 - [Tracery Grammar](#tracery-grammar)
 - [Conclusion](#conclusion)
  
-# Introduction
+ ## Introduction
 
-Tracery is a content generation library originally created by [@GalaxyKate](http://www.galaxykate.com/); you can find more information at [Tracery.io](http://www.tracery.io)
+Ephemeral is a text generation tool based on BenziAhamed's [Swift port of Tracery](https://github.com/BenziAhamed/Tracery).  
+
+[Tracery](http://www.tracery.io) is a content generation library originally created by [@GalaxyKate](http://www.galaxykate.com/).  
  
-This implementation, while heavily inspired by the original, has more features added.
+This implementation is an extension of the original Tracery. Apart from the expansions introduced by the orginal Swift port, that mostly concern callbacks into Swift, Ephemeral contains a regular expression based postprocessor, preprocessing functionality and a math library.  
  
 The content generation in Tracery works based on an input set of rules. The rules determine how content should be generated.
  
-## Manual Installation
+ ### Manual Installation
  
 - Clone or download this repository
 - The project builds `iOS` and `macOS` framework targets, which can be linked to your projects
@@ -60,15 +62,13 @@ $ brew install carthage
 To integrate Highlightr into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```ogdl
-github "martinpi/Tracery"
+github "martinpi/ephemeral"
 ```
 
 Run `carthage update` to build the framework and drag the built `Tracery.framework` into your Xcode project.
 
 ## Basic usage
  
-
-
 
 ```swift
 import Tracery
@@ -177,7 +177,7 @@ t.expand("#boy# and #girl# went up the hill, #boy# fell down, and so did #girl#"
  In order to remember values, we can use tags.
  
 
-# Tags
+## Tags
  
  Tags allow to persist the result of a rule expansion to a temporary variable.
  
@@ -203,7 +203,7 @@ t.expand("#sentence#")
  
  
 
-## Simple story
+### Simple story
  
  Here is a more complex example that generates a _short_ story.
  
@@ -229,7 +229,7 @@ t.expand("#origin#")
 
  
 
-## Random numbers
+### Random numbers
  
  Here's another example to generate a random number:
  
@@ -258,7 +258,7 @@ t.expand("[d:0,1,2,3,4,5,6,7,8,9] random 5-digit number: #d##d##d##d##d#")
 
 
 
-# Modifiers
+## Modifiers
  
  When expanding a rule, sometimes we may need to capitalize its output, or transform it in some way. The Tracery engine allows for defining rule extensions.
  
@@ -309,8 +309,21 @@ t.expand("There once was a man named #city.reverse.title#, who came from the cit
 
 
  
- > The original implementation at Tracery.io a couple of has modifiers that allows prefixing a/an to words, pluralization, caps etc. The library follows another approach and provides customization endopints so that one can add as many modifiers as required.
+ > The original implementation at Tracery.io a couple of has modifiers that allows prefixing a/an to words, pluralization, caps etc. This library replicates all the original modifiers and adds two important new ones: the modifier ".n" can be used to add a newline to the document and the modifier ".k(formula)" can be used for making calculations. Currently calculations always return float numbers and the following operations are supported: 
+ - basic binary operations: `+`,`-`, `*`, `/`
+ - brackets for grouping: `()`
+ - complex unary oprations: `sin(rad)`, `cos(rad)`, `rand(range)`
  
+ Due to how the parsing consumes brackets only bracket-less operations can be performed directly. Otherwise the syntax is as follows:
+
+```
+[origin]
+#.k(#formula#)#
+
+[formula]
+sin(3.5)+3.0
+```
+
  The next rule expansion option is the ability to add custom rule methods.
  
 
@@ -319,7 +332,7 @@ t.expand("There once was a man named #city.reverse.title#, who came from the cit
 
  
 
-# Methods
+## Methods
  
  While modifiers would receive as input the current candidate value of a rule, methods can be used to define modifiers that can accept parameters.
  
@@ -389,7 +402,7 @@ t.expand("[name:benzi]#name.repeat(3)#")
 
 
 
-# Calls
+## Calls
  
  There is one more type of rule extension, which is a `call`. Unlike modifiers and methods that work with arguments, parameters and are expected to return some string value, calls do not need to do these.
  
@@ -433,10 +446,7 @@ t.expand("#letter#")
 
 ****
 
-# Advanced Usage
- 
-
-## Custom Content Selectors
+## Advanced Usage: Custom Content Selectors
  
  We know that a rule can have multiple candidates. By default, Tracery chooses a candidate option randomly, but the selection process is guaranteed to be strictly uniform. 
  
@@ -618,7 +628,7 @@ runOptionRule(times: 100, header: "default - weighted")
  In order to provide more flexibility over candidate representation, Tracery allows custom candidate providers.
  
 
-## Custom Candidate Provider
+## Advanced Usage: Custom Candidate Providers
  
  ### Sequential Selector
  
@@ -725,7 +735,7 @@ runOptionRule(times: 100, header: "custom weighted")
 [top](#contents)
 ****
 
-## Recursion
+## Advanced Usage: Recursion
 
 ### Rule Expansions
  
@@ -1071,7 +1081,7 @@ Outwits
 [top](#contents)
 ****
 
-# Tracery Grammar
+## Tracery Grammar
  
  This section attempts to describe the grammar specification for Tracery.
  
@@ -1123,13 +1133,11 @@ Outwits
 [top](#contents)
 ****
 
-# Conclusion
+## Conclusion
+ 
+ Ephemerald was developed by [Martin Pichlmair](http://vertical-progress.net)
  
  Tracery in Swift was developed by [Benzi](https://twitter.com/benziahamed).
  
  Original library in Javascript is available at [Tracery.io](http://www.tracery.io/).
  
- 
-
-
-> This README was auto-generated using [playme](https://github.com/BenziAhamed/playme)
