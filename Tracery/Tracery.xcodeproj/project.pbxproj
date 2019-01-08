@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0E71B8372181CF70008F829A /* RandomSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E71B8362181CF70008F829A /* RandomSource.swift */; };
 		0E71B8382181D220008F829A /* RandomSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E71B8362181CF70008F829A /* RandomSource.swift */; };
+		0E77FD3921E4F893002D45C8 /* Tracery.h in Headers */ = {isa = PBXBuildFile; fileRef = 0E77FD3721E4F877002D45C8 /* Tracery.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0E79B9E7216CA65000359AB3 /* Tracery.JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E79B9E6216CA65000359AB3 /* Tracery.JSON.swift */; };
 		0E79B9E8216CA65000359AB3 /* Tracery.JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E79B9E6216CA65000359AB3 /* Tracery.JSON.swift */; };
 		0E79B9EC216CA66600359AB3 /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E79B9EB216CA66600359AB3 /* Modifiers.swift */; };
@@ -105,7 +106,6 @@
 		B912804D1E77B0530063D5A8 /* Tags.swift in Sources */ = {isa = PBXBuildFile; fileRef = B912800A1E77AF980063D5A8 /* Tags.swift */; };
 		B912804E1E77B0530063D5A8 /* TraceryioSamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = B912800B1E77AF980063D5A8 /* TraceryioSamples.swift */; };
 		B953F8AE1E771704001D6052 /* TagStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B975BB7D1E75C91C0076A1EA /* TagStorage.swift */; };
-		B96DBFCD1E72B631008623B8 /* Tracery.h in Headers */ = {isa = PBXBuildFile; fileRef = B96DBFBF1E72B630008623B8 /* Tracery.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B96DBFFD1E72B994008623B8 /* Tracery.h in Headers */ = {isa = PBXBuildFile; fileRef = B96DBFEF1E72B994008623B8 /* Tracery.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B96DC0291E72F2B7008623B8 /* CyclicReferenceIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96DC01E1E72F2B7008623B8 /* CyclicReferenceIdentifier.swift */; };
 		B96DC02B1E72F2B7008623B8 /* Lexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96DC0201E72F2B7008623B8 /* Lexer.swift */; };
@@ -174,6 +174,7 @@
 
 /* Begin PBXFileReference section */
 		0E71B8362181CF70008F829A /* RandomSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomSource.swift; sourceTree = "<group>"; };
+		0E77FD3721E4F877002D45C8 /* Tracery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tracery.h; sourceTree = "<group>"; };
 		0E79B9E6216CA65000359AB3 /* Tracery.JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tracery.JSON.swift; sourceTree = "<group>"; };
 		0E79B9EB216CA66600359AB3 /* Modifiers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
 		0E79B9EE216CA6B500359AB3 /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
@@ -212,7 +213,6 @@
 		B912800B1E77AF980063D5A8 /* TraceryioSamples.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TraceryioSamples.swift; sourceTree = "<group>"; };
 		B912802C1E77AFEE0063D5A8 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B96DBFBC1E72B630008623B8 /* Tracery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Tracery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B96DBFBF1E72B630008623B8 /* Tracery.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tracery.h; sourceTree = "<group>"; };
 		B96DBFED1E72B993008623B8 /* Tracery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Tracery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B96DBFEF1E72B994008623B8 /* Tracery.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tracery.h; sourceTree = "<group>"; };
 		B96DC01E1E72F2B7008623B8 /* CyclicReferenceIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CyclicReferenceIdentifier.swift; sourceTree = "<group>"; };
@@ -290,6 +290,14 @@
 			path = Analyzer;
 			sourceTree = "<group>";
 		};
+		0E77FD3621E4F877002D45C8 /* TraceryiOS */ = {
+			isa = PBXGroup;
+			children = (
+				0E77FD3721E4F877002D45C8 /* Tracery.h */,
+			);
+			path = TraceryiOS;
+			sourceTree = SOURCE_ROOT;
+		};
 		0EEBF3E521C7D3CA00FFFC37 /* ephemeral */ = {
 			isa = PBXGroup;
 			children = (
@@ -359,7 +367,7 @@
 				B912802C1E77AFEE0063D5A8 /* Info.plist */,
 				B96DC01D1E72F2B7008623B8 /* Common */,
 				B9127FFB1E77AF980063D5A8 /* Testing */,
-				B96DBFBE1E72B630008623B8 /* Tracery iOS */,
+				0E77FD3621E4F877002D45C8 /* TraceryiOS */,
 				B96DBFEE1E72B993008623B8 /* Tracery Mac */,
 				B9FCA8081E73D6FA0069F8B6 /* Tracery Tests iOS */,
 				B9127FE11E77AEA40063D5A8 /* Tracery Tests macOS */,
@@ -378,15 +386,6 @@
 				0EEBF3E421C7D3CA00FFFC37 /* ephemeral */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		B96DBFBE1E72B630008623B8 /* Tracery iOS */ = {
-			isa = PBXGroup;
-			children = (
-				B96DBFBF1E72B630008623B8 /* Tracery.h */,
-			);
-			name = "Tracery iOS";
-			path = Tracery;
 			sourceTree = "<group>";
 		};
 		B96DBFEE1E72B993008623B8 /* Tracery Mac */ = {
@@ -438,7 +437,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B96DBFCD1E72B631008623B8 /* Tracery.h in Headers */,
+				0E77FD3921E4F893002D45C8 /* Tracery.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -154,7 +154,10 @@ public class StandardModifiers {
 		t.add(modifier: "lowercase") { return StandardModifiers.lowercase(s: $0) }
 		t.add(modifier: "title") { return StandardModifiers.titlecase(s: $0) }
 		t.add(modifier: "caps") { return StandardModifiers.capitalize(s: $0) }
+		t.add(modifier: "capitalize") { return StandardModifiers.capitalize(s: $0) }
+		t.add(modifier: "capitalise") { return StandardModifiers.capitalize(s: $0) }
 		t.add(modifier: "inQuotes") { return StandardModifiers.inQuotes(s: $0) }
+		t.add(modifier: "quote") { return StandardModifiers.inQuotes(s: $0) }
 		t.add(modifier: "comma") { return StandardModifiers.comma(s: $0) }
 		t.add(modifier: "a") { return StandardModifiers.a(s: $0) }
 		t.add(modifier: "s") { return StandardModifiers.s(s: $0) }
