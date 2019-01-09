@@ -290,12 +290,12 @@
 			path = Analyzer;
 			sourceTree = "<group>";
 		};
-		0E77FD3621E4F877002D45C8 /* TraceryiOS */ = {
+		0E77FD3621E4F877002D45C8 /* Tracery iOS */ = {
 			isa = PBXGroup;
 			children = (
 				0E77FD3721E4F877002D45C8 /* Tracery.h */,
 			);
-			path = TraceryiOS;
+			path = "Tracery iOS";
 			sourceTree = SOURCE_ROOT;
 		};
 		0EEBF3E521C7D3CA00FFFC37 /* ephemeral */ = {
@@ -367,7 +367,7 @@
 				B912802C1E77AFEE0063D5A8 /* Info.plist */,
 				B96DC01D1E72F2B7008623B8 /* Common */,
 				B9127FFB1E77AF980063D5A8 /* Testing */,
-				0E77FD3621E4F877002D45C8 /* TraceryiOS */,
+				0E77FD3621E4F877002D45C8 /* Tracery iOS */,
 				B96DBFEE1E72B993008623B8 /* Tracery Mac */,
 				B9FCA8081E73D6FA0069F8B6 /* Tracery Tests iOS */,
 				B9127FE11E77AEA40063D5A8 /* Tracery Tests macOS */,

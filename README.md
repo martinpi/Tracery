@@ -16,7 +16,8 @@ The content generation in Tracery works based on an input set of rules. The rule
  
 - Clone or download this repository
 - The project builds `iOS` and `macOS` framework targets, which can be linked to your projects
-- To work with the playground, open Playgrounds/Tracery.playground
+- To work with the playground, open Playgrounds/Tracery.playground (the playground is not maintained in the moment though and might get removed in the future)
+- Build the command line target `ephemeral` to run the parser from command line
 
 ### Carthage
 
@@ -1116,8 +1117,18 @@ Outwits
  
 ```
  
+****
 
-[top](#contents)
+## Command line usage
+
+```
+usage:
+ephemeral [-h] -i input-file [-o output-file]
+```
+
+The command line loads an input file and always evaluates #origin#. It can write to an output file or standard output.  
+
+
 ****
 
 ## Conclusion
