@@ -1,8 +1,13 @@
 
+[![Swift Versions](https://img.shields.io/badge/Swift-4-green.svg)](https://swift.org)
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-0473B3.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![License](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat)](https://github.com/martinpi/ephemeral)
- 
- # Ephemeral – A Tool for Procedural Text Generation
+  [![Twitter Contact](https://img.shields.io/badge/contact-@martinpi-blue.svg?style=flat)](https://twitter.com/martinpi)
+<!-- [![Build Status](https://travis-ci.org/davecom/SwiftGraph.svg?branch=master)](https://travis-ci.org/davecom/SwiftGraph)-->
+<!-- [![Maintainability](https://api.codeclimate.com/v1/badges/b93b35351ff96b21678f/maintainability)](https://codeclimate.com/github/davecom/SwiftGraph/maintainability)-->
+<!-- [![Test Coverage](https://api.codeclimate.com/v1/badges/b93b35351ff96b21678f/test_coverage)](https://codeclimate.com/github/davecom/SwiftGraph/test_coverage)-->
+
+# Ephemeral – A Tool for Procedural Text Generation
 
 Ephemeral is a text generation tool based on BenziAhamed's [Swift port of Tracery](https://github.com/BenziAhamed/Tracery).  
 
