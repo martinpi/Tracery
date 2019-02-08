@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E48C452220C424C00858E44 /* Kalk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E48C451220C424C00858E44 /* Kalk.swift */; };
+		0E48C453220C424C00858E44 /* Kalk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E48C451220C424C00858E44 /* Kalk.swift */; };
 		0E71B8372181CF70008F829A /* RandomSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E71B8362181CF70008F829A /* RandomSource.swift */; };
 		0E71B8382181D220008F829A /* RandomSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E71B8362181CF70008F829A /* RandomSource.swift */; };
 		0E77FD3921E4F893002D45C8 /* Tracery.h in Headers */ = {isa = PBXBuildFile; fileRef = 0E77FD3721E4F877002D45C8 /* Tracery.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -173,6 +175,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0E48C451220C424C00858E44 /* Kalk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kalk.swift; sourceTree = "<group>"; };
 		0E71B8362181CF70008F829A /* RandomSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomSource.swift; sourceTree = "<group>"; };
 		0E77FD3721E4F877002D45C8 /* Tracery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tracery.h; sourceTree = "<group>"; };
 		0E79B9E6216CA65000359AB3 /* Tracery.JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tracery.JSON.swift; sourceTree = "<group>"; };
@@ -355,6 +358,7 @@
 				B9B9CC411E882E260080881D /* Objects.swift */,
 				0E79B9EE216CA6B500359AB3 /* Modifiers.swift */,
 				0E9D3C3C21875B9900C77E64 /* RandomSources.swift */,
+				0E48C451220C424C00858E44 /* Kalk.swift */,
 			);
 			name = Testing;
 			path = ../Testing;
@@ -689,6 +693,7 @@
 				B912804E1E77B0530063D5A8 /* TraceryioSamples.swift in Sources */,
 				B9B9CC431E882E260080881D /* Objects.swift in Sources */,
 				B912804D1E77B0530063D5A8 /* Tags.swift in Sources */,
+				0E48C453220C424C00858E44 /* Kalk.swift in Sources */,
 				B91280451E77B0530063D5A8 /* ExtensionMethod.swift in Sources */,
 				B91280431E77B0530063D5A8 /* ErrorMessages.swift in Sources */,
 				B91280461E77B0530063D5A8 /* ExtensionModifier.swift in Sources */,
@@ -787,6 +792,7 @@
 				B912803E1E77B0520063D5A8 /* TraceryioSamples.swift in Sources */,
 				B9B9CC421E882E260080881D /* Objects.swift in Sources */,
 				B912803D1E77B0520063D5A8 /* Tags.swift in Sources */,
+				0E48C452220C424C00858E44 /* Kalk.swift in Sources */,
 				B91280351E77B0520063D5A8 /* ExtensionMethod.swift in Sources */,
 				B91280331E77B0520063D5A8 /* ErrorMessages.swift in Sources */,
 				B91280361E77B0520063D5A8 /* ExtensionModifier.swift in Sources */,

@@ -15,7 +15,9 @@ class RecursiveRules: XCTestCase {
     
     override func setUp() {
         limit = Tracery.maxStackDepth
-        Tracery.maxStackDepth = 20
+		
+		// disable so we can test actual case instead of fake:
+//        Tracery.maxStackDepth = 20
     }
     
     override func tearDown() {
@@ -29,4 +31,11 @@ class RecursiveRules: XCTestCase {
             ]}
         XCTAssertTrue(t.expand("#a#").contains("stack overflow"))
     }
+
+	func testStackOverflow2() {
+		let t = Tracery {[
+			"a": "#a# -- #a#",
+			]}
+		XCTAssertTrue(t.expand("#a#").contains("stack overflow"))
+	}
 }

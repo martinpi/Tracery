@@ -285,7 +285,7 @@ t.expand("There once was a man named #city.reverse.title#, who came from the cit
  - brackets for grouping: `()`
  - complex unary oprations: `sin(rad)`, `cos(rad)`, `rand(range)`, `sqrt(value)`
  
- Due to how the parsing consumes brackets only bracket-less operations can be performed directly. Otherwise the syntax is as follows:
+ Bracket-less operations can be performed directly, e.g. `#.k(1+3)#` works. In case of calling a function like `sin` and `rand`, due to the parsing method, the syntax is as follows:
 
 ```
 [origin]

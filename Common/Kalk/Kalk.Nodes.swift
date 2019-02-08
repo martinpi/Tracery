@@ -27,7 +27,12 @@ public struct KalkNumberNode: KalkExprNode {
     public var description: String {
         return "NumberNode(\(value))"
     }
-	public var evaluate: KalkValue { return KalkInterpreter.getDouble(value:value) }
+	public var evaluate: KalkValue {
+		if value == floor(value) {
+			return KalkInterpreter.getInt(value: Int(value))
+		}
+		return KalkInterpreter.getDouble(value:value)
+	}
 }
 
 //public struct KalkColourNode: KalkBaseNode {
@@ -84,7 +89,17 @@ public struct KalkCallNode: KalkExprNode {
         return "CallNode(name: \(callee), argument: \(arguments))"
     }
 	public var evaluate: KalkValue {
-		return KalkInterpreter.getFunction(name: callee)?.eval(arguments[0].evaluate) ?? KalkInterpreter.getDouble(value:-1.0)
+		
+		if let binary = KalkInterpreter.getBinaryFunction(name: callee) {
+			if arguments.count == 2 {
+				return binary.eval(arguments[0].evaluate, arguments[1].evaluate)
+			}
+		}
+		if let unary = KalkInterpreter.getUnaryFunction(name: callee) {
+			return unary.eval(arguments[0].evaluate)
+		}
+
+		return KalkInterpreter.getDouble(value:-1.0)
 	}
 }
 
@@ -105,3 +120,4 @@ public struct KalkFunctionNode: KalkExprNode {
     }
 	public var evaluate: KalkValue { return KalkInterpreter.getDouble(value:0.0) }
 }
+

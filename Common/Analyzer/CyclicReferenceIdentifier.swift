@@ -293,6 +293,7 @@ fileprivate struct JohnsonCircuitFindingAlgorithm {
         var blocked = [Bool](repeatElement(false, count: graph.vertices.count))
         var s = 0
         var stack = [Int]()
+		var sanity = 0
         func circuit(_ v: Int) -> Bool {
             func unblock(_ u: Int) {
                 blocked[u] = false
@@ -303,7 +304,12 @@ fileprivate struct JohnsonCircuitFindingAlgorithm {
                     }
                 }
             }
-            var f = false
+			// added a sanity check because this thing would just run in circles ...
+			sanity = sanity + 1
+			if sanity > Tracery.maxStackDepth {
+				return true
+			}
+			var f = false
             stack.append(v)
             blocked[v] = true
             for w in graph.successors(of: graph.getVertex(index: v)!) {
