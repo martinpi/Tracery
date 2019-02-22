@@ -134,8 +134,10 @@ struct TextParser {
         var rule = ""
 		var buffer = ""
 		var inmulti = false
+		var inmultiTab = false
 		
         for line in lines {
+			
 			
 //			if line.hasPrefix("//") {
 ////				let testString = "This string is a curse"
@@ -146,6 +148,25 @@ struct TextParser {
 //				}
 ////				buffer = testString.replaceMatches(for: expr[0][1], template: expr[0][2])
 //			}
+
+			if line.hasPrefix("\t") {
+				inmultiTab = true
+				if buffer.count > 0 {
+					buffer = buffer + "\n" + line.trimmingCharacters(in: CharacterSet(charactersIn: "\t"))
+				} else {
+					buffer = line.trimmingCharacters(in: CharacterSet(charactersIn: "\t"))
+				}
+				continue
+			} else {
+				if inmultiTab {
+					inmultiTab = false
+					if rule != "" {
+						ruleSet[rule]!.append(buffer)
+						buffer = ""
+						continue
+					}
+				}
+			}
 			
 			if line.hasPrefix("'''") {
 				if !inmulti {
@@ -156,6 +177,7 @@ struct TextParser {
 					inmulti = false
 					if rule != "" {
 						ruleSet[rule]!.append(buffer)
+						buffer = ""
 						continue
 					} else {
 						warn("line '\(buffer)' has no valid rule")
@@ -195,6 +217,12 @@ struct TextParser {
 				}
             }
         }
+		
+		// if there is no newline after the last multiline element
+		
+		if rule != "" && buffer != "" {
+			ruleSet[rule]!.append(buffer)
+		}
 		
         return ruleSet
     }
