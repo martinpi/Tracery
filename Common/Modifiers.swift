@@ -168,6 +168,7 @@ public class StandardModifiers {
 		
 //		t.add(modifier: "k", transform: KalkInterpreter.interpret)
 
+		KalkInterpreter.registerBuiltins()
 		t.add(method: "k") { input, args in
 			return input + KalkInterpreter.interpret(args[0])
 		}

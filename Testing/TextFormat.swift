@@ -68,7 +68,7 @@ class TextFormat: XCTestCase {
 		let lines = [
 			"[origin]",
 			"#second#",
-//			"",
+			"#second# #second#",
 			"[second]",
 			"result",
 			]

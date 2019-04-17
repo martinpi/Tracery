@@ -45,7 +45,9 @@ enum Token : CustomStringConvertible {
     static let RIGHT_ROUND_BRACKET = Token.op(")")
     static let LEFT_CURLY_BRACKET = Token.op("{")
     static let RIGHT_CURLY_BRACKET = Token.op("}")
-    
+
+	static let ASSIGN = Token.op("=")
+
     static let EQUAL_TO = Token.op("==")
     static let NOT_EQUAL_TO = Token.op("!=")
     
@@ -82,7 +84,7 @@ func ==(lhs: Token, rhs: Token) -> Bool {
 extension Character {
     var isReserved: Bool {
         switch self {
-        case "[","]",":","#",",","(",")",".","{","}": return true
+        case "[","]",":","#",",","(",")",".","{","}","=": return true
         default: return false
         }
     }

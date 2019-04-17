@@ -64,6 +64,7 @@ enum ParserNode : CustomStringConvertible {
     
     case text(String)
     case rule(name:String, mods:[Modifier])
+	case kalk(String)
     case any(values:[ValueCandidate], selector:RuleCandidateSelector, mods:[Modifier])
     case tag(name:String, values:[ValueCandidate])
     case weight(value: Int)
@@ -98,6 +99,9 @@ enum ParserNode : CustomStringConvertible {
             }
             return "RULE_\(name)"
 
+		case let .kalk(formula):
+			return "KALK_\(formula)"
+			
         case let .createRule(name, values):
             if values.count == 1 { return "NEW_RULE(\(name)=\(values[0]))" }
             return "+RULE_\(name)=\(values)"

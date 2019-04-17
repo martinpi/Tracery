@@ -10,7 +10,7 @@ import Foundation
 
 
 extension Tracery {
-    
+	
     // transforms input text to expanded text
     // based on the rule set, run time tags, and modifiers
     func eval(_ text: String) throws -> String {
@@ -29,7 +29,9 @@ extension Tracery {
     }
     
     func eval(_ nodes: [ParserNode]) throws -> String {
-        
+		
+		var choices = 1
+		
         // the execution stack
         // var stack = [ExecutionContext]()
         contextStack.reset()
@@ -98,15 +100,7 @@ extension Tracery {
                 }
             }
             
-//            do {
-//                let i = depth
-//                let context = stack[i]
-//                trace("\(i) \(context)")
-//            }
-            
-            
-            // have we have finished processing
-            // the stack?
+            // have we finished processing the stack?
             if contextStack.executionComplete {
                 break
             }
@@ -130,7 +124,10 @@ extension Tracery {
                 trace("📘 text '\(text)'")
                 // commit result to context
                 contextStack.contexts[top].result.append(text)
-                
+
+			case let .kalk(formula):
+				contextStack.contexts[top].result = KalkInterpreter.interpret(formula)
+				
             case let .evaluateArg(nodes):
                 // special node that evaluates
                 // child nodes and adds result
@@ -145,7 +142,8 @@ extension Tracery {
                 try applyMods(nodes: choice.nodes, mods: mods)
                 // try pushContext(choice.nodes, affectsEvaluationLevel: false)
                 trace("🎲 picked \(choice.nodes)")
-                
+				choices *= values.count
+
             case let .tag(name, values):
                 
                 // push a context with
@@ -239,9 +237,7 @@ extension Tracery {
                         try pushContext(elseBlock, affectsEvaluationLevel: false)
                     }
                 }
-                
-                
-                
+				
             case let .runMod(name):
                 guard let mod = mods[name] else { break }
                 let context = contextStack.contexts[top]
@@ -281,12 +277,10 @@ extension Tracery {
 						return
 					}
 					
-//                    guard let candidate = mapping.select() else {
-//                        state = .noExpansion(reason: "no candidates found")
-//                        return
-//                    }
                     state = .apply(mapping.candidates[index].value.nodes)
                     trace("📙 eval \(runTime ? "runtime" : "") \(node)")
+					
+					choices *= mapping.candidates.count
                 }
                 
                 if name.isEmpty {
@@ -297,6 +291,7 @@ extension Tracery {
                     let value = mapping.candidates[i]
                     trace("📗 get tag[\(name)] --> \(value)")
                     state = .apply([.text(value)])
+					choices *= mapping.candidates.count
                 }
                 else if let object = objects[name] {
                     let value = "\(object)"
@@ -319,6 +314,8 @@ extension Tracery {
                 }
             }
         }
+		
+		trace("🧾 had \(choices) options to chose from")
         
         // finally pop the last
         // context and

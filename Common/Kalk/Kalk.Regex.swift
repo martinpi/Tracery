@@ -10,7 +10,7 @@ import Foundation
 
 var expressions = [String: NSRegularExpression]()
 public extension String {
-    public func match(regex: String) -> String? {
+	func match(regex: String) -> String? {
         let expression: NSRegularExpression
         if let exists = expressions[regex] {
             expression = exists

@@ -37,5 +37,4 @@ extension Tracery {
         }
         analyzers.forEach { $0.end() }
     }
-    
 }

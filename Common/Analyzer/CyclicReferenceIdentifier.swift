@@ -281,7 +281,7 @@ fileprivate struct JohnsonCircuitFindingAlgorithm {
             items.append(item)
         }
         mutating func remove(item: Int) {
-            if let i = items.index(where: {$0 == item}) {
+			if let i = items.firstIndex(where: {$0 == item}) {
                 items.remove(at: i)
             }
         }

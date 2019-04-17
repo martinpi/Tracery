@@ -74,12 +74,11 @@ public class KalkInterpreter {
 				(Double(arc4random()) / Double(UINT32_MAX)) * (value2.getDouble()!-value.getDouble()!))
 		}
 	}
-	
+
 	public static func interpret(_ string: String) -> String {
 		let lexer = KalkLexer(input: string)
 		let tokens = lexer.tokenize()
 		let parser = KalkParser(tokens: tokens)
-		registerBuiltins()
 		var expandedString: String = ""
 		do {
 			let nodes = try parser.parse()

@@ -11,14 +11,6 @@ import XCTest
 
 class Kalk: XCTestCase {
 
-    override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
     func testKalk() {
 		let t = Tracery()
 		t.add(object: "2+2", named: "kalk")
@@ -36,4 +28,11 @@ class Kalk: XCTestCase {
 		XCTAssertLessThan(Double(t.expand("#.k(#kalkRand3#)#"))!, 30.0)
 		XCTAssertGreaterThan(Double(t.expand("#.k(#kalkRand3#)#"))!, 9.99)
     }
+	
+	func testKalk2() {
+		let t = Tracery()
+		Tracery.logLevel = .verbose
+		XCTAssertEqual(t.expand("[=2+2]"), "4.0")
+	}
+
 }

@@ -309,6 +309,17 @@ extension Parser {
             guard let c = currentToken, c == token else { return }
             advance()
         }
+		
+		func parseFormula() throws -> ParserNode {
+
+			// calculations
+			// [=3+2]
+			// [=sin(3.2)]
+			let formula = try parseText("expected formula")
+//			nodes.append(ParserNode.kalk(name))
+//			try parseAny([.HASH, .RIGHT_CURLY_BRACKET], "closing # or } not found for rule '\(name)'")
+			return ParserNode.kalk(formula)
+		}
         
         // a fragment is the most basic block in tracery
         // a fragement can contain multiple parser nodes though
@@ -323,6 +334,8 @@ extension Parser {
             case Token.LEFT_SQUARE_BRACKET:
                 guard let next = nextToken else { return nil }
                 switch next {
+				case Token.ASSIGN:
+					nodes.append(try parseFormula())
                 case Token.KEYWORD_IF:
                     nodes.append(contentsOf: try parseIfBlock())
                 case Token.KEYWORD_WHILE:
