@@ -29,10 +29,10 @@ class Kalk: XCTestCase {
 		XCTAssertGreaterThan(Double(t.expand("#.k(#kalkRand3#)#"))!, 9.99)
     }
 	
-	func testKalk2() {
-		let t = Tracery()
-		Tracery.logLevel = .verbose
-		XCTAssertEqual(t.expand("[=2+2]"), "4.0")
-	}
+//	func testKalk2() {
+//		let t = Tracery()
+//		Tracery.logLevel = .verbose
+//		XCTAssertEqual(t.expand("[=2+2]"), "4.0")
+//	}
 
 }

@@ -30,7 +30,7 @@ extension Tracery {
     
     func eval(_ nodes: [ParserNode]) throws -> String {
 		
-		var choices = 1
+//		var choices = 1
 		
         // the execution stack
         // var stack = [ExecutionContext]()
@@ -142,7 +142,7 @@ extension Tracery {
                 try applyMods(nodes: choice.nodes, mods: mods)
                 // try pushContext(choice.nodes, affectsEvaluationLevel: false)
                 trace("🎲 picked \(choice.nodes)")
-				choices *= values.count
+//				choices *= values.count
 
             case let .tag(name, values):
                 
@@ -280,7 +280,7 @@ extension Tracery {
                     state = .apply(mapping.candidates[index].value.nodes)
                     trace("📙 eval \(runTime ? "runtime" : "") \(node)")
 					
-					choices *= mapping.candidates.count
+//					choices *= mapping.candidates.count
                 }
                 
                 if name.isEmpty {
@@ -291,7 +291,7 @@ extension Tracery {
                     let value = mapping.candidates[i]
                     trace("📗 get tag[\(name)] --> \(value)")
                     state = .apply([.text(value)])
-					choices *= mapping.candidates.count
+//					choices *= mapping.candidates.count
                 }
                 else if let object = objects[name] {
                     let value = "\(object)"
@@ -315,8 +315,8 @@ extension Tracery {
             }
         }
 		
-		trace("🧾 had \(choices) options to chose from")
-        
+//		trace("🧾 had \(choices) options to chose from")
+		
         // finally pop the last
         // context and
         return popContext().result
