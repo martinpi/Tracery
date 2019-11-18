@@ -275,7 +275,7 @@ t.expand("#city.reverse#")
 ```swift
 t.expand("#city.reverse.caps#")
 
-// output: KROY WREN
+// output: KROY WEN
 
 t.expand("There once was a man named #city.reverse.title#, who came from the city of #city.title#.")
 // output: There once was a man named Kroy Wen, who came from the city of New York.

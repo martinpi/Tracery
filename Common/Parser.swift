@@ -64,12 +64,14 @@ enum ParserNode : CustomStringConvertible {
     
     case text(String)
     case rule(name:String, mods:[Modifier])
-	case kalk(String)
     case any(values:[ValueCandidate], selector:RuleCandidateSelector, mods:[Modifier])
     case tag(name:String, values:[ValueCandidate])
     case weight(value: Int)
     case createRule(name:String, values:[ValueCandidate])
-    
+
+//	case indent(amount:Int, values:[ValueCandidate])
+	case kalk(String)
+
     // control flow
     
     indirect case ifBlock(condition:ParserCondition, thenBlock:[ParserNode], elseBlock:[ParserNode]?)

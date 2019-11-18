@@ -165,7 +165,10 @@ public class StandardModifiers {
 		t.add(modifier: "n") { input in
 			return input + "\n"
 		}
-		
+		t.add(modifier: "t") { input in
+			return "\t" + input
+		}
+
 //		t.add(modifier: "k", transform: KalkInterpreter.interpret)
 
 		KalkInterpreter.registerBuiltins()
