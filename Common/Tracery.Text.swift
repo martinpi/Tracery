@@ -195,16 +195,18 @@ struct TextParser {
 					continue
 				}
 			}
-			// ignore comments and blank lines
+			// ignore comments and blank lines and regexes
 			if line.hasPrefix("\\") || line.count == 0 || line.hasPrefix("//") {
 				continue
 			}
 			
+			// ignore spaces and tabs before "[" and after "]" – they used to lead to unnecessary parser errors
+			let trimmedLine = line.trimSpaces()
 
-			if line.hasPrefix("[") && line.hasSuffix("]") && !line.hasPrefix("[while") {
-				let start = line.index(after: line.startIndex)
-				let end = line.index(before: line.endIndex)
-				rule = String(line[start..<end])
+			if trimmedLine.hasPrefix("[") && trimmedLine.hasSuffix("]") && !trimmedLine.hasPrefix("[while") {
+				let start = trimmedLine.index(after: trimmedLine.startIndex)
+				let end = trimmedLine.index(before: trimmedLine.endIndex)
+				rule = String(trimmedLine[start..<end])
 				if ruleSet[rule] != nil {
 					warn("rule '\(rule)' defined twice, will be overwritten")
 				}

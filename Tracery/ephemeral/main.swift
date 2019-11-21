@@ -145,7 +145,7 @@ class Ephemerald {
 		let inputfile = arguments[OptionType.input.rawValue]
 		let outputfile = arguments[OptionType.output.rawValue]
 		
-		if arguments[OptionType.help.rawValue] != nil {
+		if arguments[OptionType.help.rawValue] != nil || arguments.count == 0 || inputfile == nil {
 			consoleIO.printUsage()
 			return
 		}

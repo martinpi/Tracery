@@ -168,6 +168,10 @@ public class StandardModifiers {
 		t.add(modifier: "t") { input in
 			return "\t" + input
 		}
+		t.add(modifier: "?") { input in
+			// 50% chance that the result of the expansion is not returned
+			return t.randomSource.next() > 0.5 ? "" : input
+		}
 
 //		t.add(modifier: "k", transform: KalkInterpreter.interpret)
 
