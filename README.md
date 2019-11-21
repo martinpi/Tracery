@@ -1128,10 +1128,10 @@ Outwits
 
 ```
 usage:
-ephemeral [-h] -i input-file [-o output-file]
+ephemeral [-h] -i input-file [-o output-file] [-n 100] [-s \n\n\n] 
 ```
 
-The command line loads an input file and always evaluates #origin#. It can write to an output file or standard output.  
+The command line loads an input file and always evaluates `#origin#`. It can write to an output file or standard output. The parameter `-n` defines how often the system evaluates. Output of each evaluation is separated by the text after `-s`.    
 
 
 ****
@@ -1141,6 +1141,8 @@ The command line loads an input file and always evaluates #origin#. It can write
  Ephemerald was developed by [Martin Pichlmair](http://vertical-progress.net)
  
  Tracery in Swift was developed by [Benzi](https://twitter.com/benziahamed).
+ 
+ Tracery was developed by [Kate Compoton](https://twitter.com/galaxykate) 
  
  Original library in Javascript is available at [Tracery.io](http://www.tracery.io/).
  
