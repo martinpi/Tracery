@@ -93,16 +93,27 @@ class ConsoleIO {
 		case output
 	}
 	
-	func writeMessage(_ message: String, to: OutputType = .log) {
+	func write(_ message: String, to: OutputType = .log) {
 		switch to {
 		case .log:
 			if Ephemerald.verbose {
-				print("\u{001B}[;m\(message)")
+				print(message)
 			}
 		case .output:
-			print("\u{001B}[0;33m\(message)\u{001B}[;m")
+			print(message)
 		case .error:
-			fputs("\u{001B}[0;31m\(message)\u{001B}[;m\n", stderr)
+			fputs("\(message)\n", stderr)
+		}
+	}
+	
+	func error(_ message: String, to: OutputType = .error) {
+		switch to {
+		case .log:
+			write("\u{001B}[;m !!! Error: \(message) !!!", to: to)
+		case .error:
+			write("\u{001B}[0;33m !!! Error: \(message) !!!\u{001B}[;m", to: to)
+		case .output:
+			write("\u{001B}[0;33m !!! Error: \(message) !!!\u{001B}[;m", to: to)
 		}
 	}
 
@@ -110,8 +121,8 @@ class ConsoleIO {
 		
 		let executableName = (CommandLine.arguments[0] as NSString).lastPathComponent
 		
-		writeMessage("usage:")
-		writeMessage("\(executableName) [-h] -i input-file [-o output-file]")
+		write("usage:", to:.error)
+		write("\(executableName) [-h] -i input-file [-o output-file]", to:.error)
 	}
 }
 
@@ -120,6 +131,8 @@ enum OptionType: String {
 	case output = "-o"
 	case help = "-h"
 	case verbose = "-v"
+	case separator = "-s"
+	case count = "-n"
 	case unknown
 	
 	init(value: String) {
@@ -128,6 +141,8 @@ enum OptionType: String {
 		case "-o": self = .output
 		case "-h": self = .help
 		case "-v": self = .verbose
+		case "-s": self = .separator
+		case "-n": self = .count
 		default: self = .unknown
 		}
 	}
@@ -144,30 +159,41 @@ class Ephemerald {
 
 		let inputfile = arguments[OptionType.input.rawValue]
 		let outputfile = arguments[OptionType.output.rawValue]
-		
+		let count = Int(arguments[OptionType.count.rawValue] ?? "1") ?? 1
+		let separator = arguments[OptionType.separator.rawValue] ?? "\n\n"
+
 		if arguments[OptionType.help.rawValue] != nil || arguments.count == 0 || inputfile == nil {
+			consoleIO.error("Can not find input file")
 			consoleIO.printUsage()
 			return
 		}
 		
-		consoleIO.writeMessage("Processing: "+(inputfile ?? "stdin")+" => "+(outputfile ?? "stdout"))
+		consoleIO.write("Processing: "+(inputfile ?? "stdin")+" => "+(outputfile ?? "stdout"))
 
 		Tracery.logLevel = Ephemerald.verbose ? .verbose : .warnings
 
-		var output = ""
+		var t:Tracery
 		
 		if inputfile != nil {
 		
 			let inputpath = FileManager.default.currentDirectoryPath  + "/" + inputfile!
 			if FileManager.default.isReadableFile(atPath: inputpath) {
-				consoleIO.writeMessage("Input from:\n" + inputpath)
-				output = Tracery(path: inputpath).expand("#origin#")
+				consoleIO.write("Input from:\n" + inputpath)
+				t = Tracery(path: inputpath)
+			} else {
+				consoleIO.error("File not found:\n" + inputpath)
+				consoleIO.printUsage()
+				return
 			}
 			
 		} else {
 		
 			let input = readLine(strippingNewline:false)!.components(separatedBy: .newlines)
-			output = Tracery(lines: input).expand("#origin#")
+			t = Tracery(lines: input)
+		}
+		var output = ""
+		for _ in 0..<count {
+			output += t.expand("#origin#") + separator
 		}
 		
 		if outputfile != nil {
@@ -176,13 +202,13 @@ class Ephemerald {
 			do {
 				try output.write(to: outURL, atomically: false, encoding: String.Encoding.unicode)
 			} catch {
-				consoleIO.writeMessage("Error writing to output file "+outputpath, to: .error)
+				consoleIO.error("Can not write to output file "+outputpath, to: .error)
 				consoleIO.printUsage()
 				return
 			}
-			consoleIO.writeMessage("Written to "+outputpath)
+			consoleIO.write("Written to "+outputpath)
 		} else {
-			consoleIO.writeMessage(output, to:.output)
+			consoleIO.write(output, to:.output)
 		}
 
 	}
@@ -193,10 +219,5 @@ class Ephemerald {
 
 
 let ephemerald = Ephemerald()
-
-if CommandLine.argc >= 2 {
-	ephemerald.staticMode()
-} else {
-	ephemerald.consoleIO.printUsage()
-}
+ephemerald.staticMode()
 
