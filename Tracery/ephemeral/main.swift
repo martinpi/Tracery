@@ -160,7 +160,7 @@ class Ephemerald {
 		let inputfile = arguments[OptionType.input.rawValue]
 		let outputfile = arguments[OptionType.output.rawValue]
 		let count = Int(arguments[OptionType.count.rawValue] ?? "1") ?? 1
-		let separator = arguments[OptionType.separator.rawValue] ?? "\n\n"
+		let separator = arguments[OptionType.separator.rawValue] ?? ""
 
 		if arguments[OptionType.help.rawValue] != nil || arguments.count == 0 || inputfile == nil {
 			consoleIO.error("Can not find input file")
@@ -193,7 +193,7 @@ class Ephemerald {
 		}
 		var output = ""
 		for _ in 0..<count {
-			output += t.expand("#origin#") + separator
+			output += t.expand("#origin#") + "\n" + separator + "\n"
 		}
 		
 		if outputfile != nil {

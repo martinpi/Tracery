@@ -150,7 +150,7 @@ t.expand("#boy# and #girl# went up the hill, #boy# fell down, and so did #girl#"
 
  The problem is that any occurence of a `#rule#` will be replaced by one of its candidate values. So when we write `#boy#` twice, it may get replaced with entirely different names.
  
- In order to remember values, we can use tags.
+ 
  
 
 ## Tags
@@ -293,12 +293,14 @@ The original implementation at Tracery.io a couple of has modifiers that allows 
 | `.?` | 50:50 chance that the result of this execution is dropped |
 | `.k` | Execute as calculation |
 
+### Calculating with .k
+
 Currently calculations always return float numbers and the following operations are supported: 
  - basic binary operations: `+`,`-`, `*`, `/`
  - brackets for grouping: `()`
  - complex unary oprations: `sin(rad)`, `cos(rad)`, `rand(range)`, `sqrt(value)`
  
- Bracket-less operations can be performed directly, e.g. `#.k(1+3)#` works. In case of calling a function like `sin` and `rand`, due to the parsing method, the syntax is as follows:
+ Bracket-less operations can be performed directly, e.g. `#.k(1+3)#` works. In case of calling a function like `sin` and `rand`, the syntax is as follows:
 
 ```
 [origin]
@@ -308,7 +310,6 @@ Currently calculations always return float numbers and the following operations 
 sin(3.5)+3.0
 ```
 
- The next rule expansion option is the ability to add custom rule methods.
  
 
  
