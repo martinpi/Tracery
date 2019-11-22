@@ -175,7 +175,7 @@ t.expand("#sentence#")
 
  Tags are created using the format `[tagName:tagValue]`. In the above snippet we first create two tags, `b` and `g` to hold values of `boy` and `girl` names respectively. Later on we can use `#b#` and `#g#` as if they were new rules and we Tracery will recall their stored values as required for substitution.
  
- Tags can also simply contain a value, or a group of values. Tags can also appear inside `#rules#`. Tags are variable, they can be set any number of times.
+ Tags can also simply contain a value, or a group of values. Tags can also appear inside `#rules#`. Tags are variable, they can be set any number of times. If a tag shares a name with a rule, the tag takes precedence.
  
  
 
@@ -221,11 +221,6 @@ t.expand("[d:0,1,2,3,4,5,6,7,8,9] random 5-digit number: #d##d##d##d##d#")
 
 
  
- In
- 
- > If a tag name matches a rule, the tag will take precedence and will always be evaluated.
- 
- Now that we have the hang of things, we will look at rule modifiers.
  
  
 
@@ -281,11 +276,24 @@ t.expand("There once was a man named #city.reverse.title#, who came from the cit
 // output: There once was a man named Kroy Wen, who came from the city of New York.
 ```
 
+The original implementation at Tracery.io a couple of has modifiers that allows prefixing a/an to words, pluralization, caps etc. This library replicates all the original modifiers and adds two important new ones: the modifier ".n" can be used to add a newline to the document and the modifier ".k(formula)" can be used for making calculations. Here is a list of all modifiers:
 
+| Modifier | Operation |
+|---|---|
+| `.uppercase` | All caps |
+| `.lowercase` | All lowercase |
+| `.title` | Title case |
+| `.caps`, `.capitalize`, `.capitalise` | Capitalise first letter |
+| `.inQuotes`, `.quote` | Wrap it in quotes |
+| `.comma` | Separate words by comma |
+| `.a` | Put a/an before the word |
+| `.ed` | Turn into simple past tense |
+| `.n` | Add a newline after it |
+| `.t` | Add a tab before it (indent) |
+| `.?` | 50:50 chance that the result of this execution is dropped |
+| `.k` | Execute as calculation |
 
-
- 
- > The original implementation at Tracery.io a couple of has modifiers that allows prefixing a/an to words, pluralization, caps etc. This library replicates all the original modifiers and adds two important new ones: the modifier ".n" can be used to add a newline to the document and the modifier ".k(formula)" can be used for making calculations. Currently calculations always return float numbers and the following operations are supported: 
+Currently calculations always return float numbers and the following operations are supported: 
  - basic binary operations: `+`,`-`, `*`, `/`
  - brackets for grouping: `()`
  - complex unary oprations: `sin(rad)`, `cos(rad)`, `rand(range)`, `sqrt(value)`
@@ -302,9 +310,6 @@ sin(3.5)+3.0
 
  The next rule expansion option is the ability to add custom rule methods.
  
-
-
-
 
  
 
