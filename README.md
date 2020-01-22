@@ -35,7 +35,7 @@ $ brew update
 $ brew install carthage
 ```
 
-To integrate Highlightr into your Xcode project using Carthage, specify it in your `Cartfile`:
+To integrate ephemeral into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```ogdl
 github "martinpi/ephemeral"
